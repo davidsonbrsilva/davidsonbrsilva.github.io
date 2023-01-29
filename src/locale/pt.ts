@@ -5,4 +5,8 @@ export default {
     switchToLightModeButton: "Mudar para o Modo Claro",
     chooseALanguageButton: "Escolha um idioma",
   },
+  homepage: {
+    title: "Davidson Bruno",
+    subtitle: "Desenvolvedor Fullstack",
+  },
 };
