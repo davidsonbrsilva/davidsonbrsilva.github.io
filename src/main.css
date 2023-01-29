@@ -1,0 +1,36 @@
+:root {
+    --font-base: 'Inter', sans-serif;
+    --main-background: #1A1A1A;
+    --teste-background: tomato;
+}
+
+.dark {
+    --main-background: #1A1A1A;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    background-color: var(--main-background);
+}
+
+button, a {
+    font-family: var(--font-base);
+    font-size: 0.8125rem;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
+}
