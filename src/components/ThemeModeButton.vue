@@ -5,8 +5,13 @@ const isInLightMode = ref(false);
 </script>
 
 <template>
-  <input v-model="isInLightMode" type="checkbox" id="theme-mode-toggle" />
-  <label for="theme-mode-toggle">
+  <input
+    v-model="isInLightMode"
+    type="checkbox"
+    id="theme-mode-toggle"
+    class="checkbox"
+  />
+  <label for="theme-mode-toggle" class="toggle-button">
     <i class="material-symbols-outlined dark-mode">dark_mode</i>
     <i class="material-symbols-outlined light-mode">light_mode</i>
     <span>
@@ -19,14 +24,37 @@ const isInLightMode = ref(false);
   </label>
 </template>
 
-<style scoped>
-input {
+<style lang="scss" scoped>
+.checkbox {
   width: 0;
   height: 0;
   visibility: hidden;
+
+  &:checked + label {
+    background-color: #ededed;
+    border: 1px solid #dbdbdb;
+    justify-content: flex-end;
+
+    &:hover {
+      border: 1px solid #c9c9c9;
+    }
+
+    &:after {
+      background-color: #c9c9c9;
+    }
+
+    i.dark-mode {
+      opacity: 0;
+    }
+
+    i.light-mode {
+      color: #1a1a1a;
+      opacity: 1;
+    }
+  }
 }
 
-label {
+.toggle-button {
   width: 4rem;
   height: 1.75rem;
   display: flex;
@@ -38,69 +66,43 @@ label {
   cursor: pointer;
   padding: 0.125rem;
   position: relative;
-}
-
-label:hover {
-  border: 1px solid #404040;
-}
-
-input:checked + label {
-  background-color: #ededed;
-  border: 1px solid #dbdbdb;
-  justify-content: flex-end;
-}
-
-input:checked + label:hover {
-  border: 1px solid #ededed;
-}
-
-label:after {
-  content: "";
-  width: 1.4rem;
-  height: 1.4rem;
-  border-radius: 0.8rem;
-  background-color: #1a1a1a;
-}
-
-input:checked + label:after {
-  background-color: #c9c9c9;
-}
-
-label,
-label:after {
   transition: 0.3s;
-}
 
-label:active:after {
-  width: 1.75rem;
-}
+  &:hover {
+    border: 1px solid #404040;
+  }
 
-label i {
-  position: absolute;
-  font-size: 1rem;
-}
+  &:after {
+    content: "";
+    width: 1.4rem;
+    height: 1.4rem;
+    border-radius: 0.8rem;
+    background-color: #1a1a1a;
+    transition: 0.3s;
+  }
 
-label i.dark-mode {
-  opacity: 1;
-  left: 4px;
-  color: #c9c9c9;
-}
+  &:active:after {
+    width: 1.75rem;
+  }
 
-label i.light-mode {
-  opacity: 0;
-  right: 4px;
-}
+  i {
+    position: absolute;
+    font-size: 1rem;
 
-input:checked + label i.dark-mode {
-  opacity: 0;
-}
+    &.dark-mode {
+      opacity: 1;
+      left: 4px;
+      color: #c9c9c9;
+    }
 
-input:checked + label i.light-mode {
-  color: #1a1a1a;
-  opacity: 1;
-}
+    &.light-mode {
+      opacity: 0;
+      right: 4px;
+    }
+  }
 
-label span {
-  font-size: 0;
+  span {
+    font-size: 0;
+  }
 }
 </style>
