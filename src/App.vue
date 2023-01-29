@@ -5,5 +5,3 @@ import Homepage from "@views/Homepage.vue";
 <template>
   <Homepage />
 </template>
-
-<style scoped></style>
