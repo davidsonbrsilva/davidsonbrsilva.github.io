@@ -1,20 +1,17 @@
 html {
-    font-size: 16px;
+  font-size: 16px;
 }
 
 button {
-    cursor: pointer;
+  cursor: pointer;
 }
 
-button, a {
-    font-family: var(--font-base);
-    font-size: 0.8125rem;
+button,
+a {
+  font-family: var(--font-base);
+  font-size: 0.8125rem;
 }
 
 .material-symbols-outlined {
-  font-variation-settings:
-  'FILL' 0,
-  'wght' 400,
-  'GRAD' 0,
-  'opsz' 48
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48;
 }

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref } from 'vue';
 
 const isInLightMode = ref(false);
 </script>
@@ -17,8 +17,8 @@ const isInLightMode = ref(false);
     <span>
       {{
         isInLightMode
-          ? $t("header.switchToLightModeButton")
-          : $t("header.switchToDarkModeButton")
+          ? $t('header.switchToLightModeButton')
+          : $t('header.switchToDarkModeButton')
       }}
     </span>
   </label>
@@ -73,7 +73,7 @@ const isInLightMode = ref(false);
   }
 
   &:after {
-    content: "";
+    content: '';
     width: 1.4rem;
     height: 1.4rem;
     border-radius: 0.8rem;
