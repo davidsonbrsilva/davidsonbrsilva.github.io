@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-import { ref } from "vue";
-import { useI18n } from "vue-i18n";
-import { languages } from "../locale";
+import { ref } from 'vue';
+import { useI18n } from 'vue-i18n';
+import { languages } from '../locale';
 
 const i18n = useI18n();
 
@@ -21,7 +21,7 @@ const changeLocale = (locale: string) => {
     @click="isMenuOpen = !isMenuOpen"
   >
     <i class="material-symbols-outlined">translate</i
-    >{{ $t("header.chooseALanguageButton") }}
+    >{{ $t('header.chooseALanguageButton') }}
   </button>
   <menu class="menu" v-if="isMenuOpen">
     <li v-for="locale in $i18n.availableLocales">

@@ -1,32 +1,32 @@
 <script lang="ts" setup>
 const socialBadges = [
   {
-    name: "LinkedIn",
-    url: "https://linkedin.com/in/davidsonbrsilva",
+    name: 'LinkedIn',
+    url: 'https://linkedin.com/in/davidsonbrsilva',
   },
   {
-    name: "Github",
-    url: "https://github.com/davidsonbrsilva",
+    name: 'Github',
+    url: 'https://github.com/davidsonbrsilva',
   },
   {
-    name: "Replit",
-    url: "https://replit.com/@davidsonbrsilva",
+    name: 'Replit',
+    url: 'https://replit.com/@davidsonbrsilva',
   },
   {
-    name: "Codepen",
-    url: "https://codepen.io/davidsonbrsilva",
+    name: 'Codepen',
+    url: 'https://codepen.io/davidsonbrsilva',
   },
   {
-    name: "Instagram",
-    url: "https://instagram.com/davidsonbrsilva",
+    name: 'Instagram',
+    url: 'https://instagram.com/davidsonbrsilva',
   },
 ];
 </script>
 
 <template>
   <main class="container">
-    <h1 class="title">{{ $t("homepage.title") }}</h1>
-    <h2 class="subtitle">{{ $t("homepage.subtitle") }}</h2>
+    <h1 class="title">{{ $t('homepage.title') }}</h1>
+    <h2 class="subtitle">{{ $t('homepage.subtitle') }}</h2>
     <ul class="social">
       <li v-for="badge in socialBadges">
         <a :href="badge.url"
@@ -44,14 +44,14 @@ const socialBadges = [
 }
 
 .title {
-  font: bold 2rem "Inter", sans-serif;
+  font: bold 2rem 'Inter', sans-serif;
   color: #ffbf40;
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   text-align: center;
 }
 
 .subtitle {
-  font: normal 1.5rem "Inter", sans-serif;
+  font: normal 1.5rem 'Inter', sans-serif;
   color: #c9c9c9;
   text-align: center;
   font-weight: normal;

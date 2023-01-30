@@ -2,7 +2,7 @@
   <button type="button" class="button-about-me">
     <i class="material-symbols-outlined satisfied">sentiment_satisfied</i>
     <i class="material-symbols-outlined happy">mood</i>
-    {{ $t("header.aboutMeButton") }}
+    {{ $t('header.aboutMeButton') }}
   </button>
 </template>
 
@@ -16,7 +16,7 @@
   padding: 0.2rem;
   padding-right: 0.8rem;
   border-radius: 2rem;
-  font: bold 0.8125rem "Inter", sans-serif;
+  font: bold 0.8125rem 'Inter', sans-serif;
   color: #1a1a1a;
   background-color: #ffbf40;
   transition: 0.3s;

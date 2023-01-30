@@ -1,8 +1,8 @@
-import { createApp } from "vue";
+import { createApp } from 'vue';
 
-import App from "./App.vue";
-import Locale from "@locale";
+import App from './App.vue';
+import Locale from '@locale';
 
-import "./global.css";
+import './global.css';
 
-createApp(App).use(Locale).mount("#app");
+createApp(App).use(Locale).mount('#app');

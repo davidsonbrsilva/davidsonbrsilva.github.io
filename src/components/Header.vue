@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import AboutMeButton from "./AboutMeButton.vue";
-import LanguageButton from "./LanguageButton.vue";
-import ThemeModeButton from "./ThemeModeButton.vue";
+import AboutMeButton from './AboutMeButton.vue';
+import LanguageButton from './LanguageButton.vue';
+import ThemeModeButton from './ThemeModeButton.vue';
 </script>
 
 <template>
