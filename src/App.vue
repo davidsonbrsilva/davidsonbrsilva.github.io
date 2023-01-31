@@ -13,43 +13,50 @@ import Homepage from '@views/Homepage.vue';
   </div>
 </template>
 
-<style>
-/* .light {
-  background-color: #eeeeee;
-  width: 100vw;
-  height: 100vh;
-} */
-
-:root {
-  --font-base: "Inter", sans-serif;
-  --dark-10: #1a1a1a;
-  --dark-15: #262626;
-  --dark-20: #333333;
-  --dark-25: #404040;
-  --light-79: #c9c9c9;
-  --light-86: #dbdbdb;
-  --light-93: #ededed;
-  --light-100: #ffffff;
-  --accent-dark: #e59900;
-  --accent-normal: #ffaa00;
-  --accent-light: #ffbf40;
-
-  --main-background: var(--dark-10)
-  --aside-background: var(--accent-light)
-}
-
+<style lang="scss">
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+html {
+  font-size: 16px;
+}
+
 body {
-    background-color: var(--dark-10);
+  background-color: $background-color-base;
+}
+
+h1 {
+  font: $text-title;
+  color: $text-color-highlight;
+}
+
+h2 {
+  font: $text-subtitle;
+  color: $text-color-base;
+}
+
+h3 {
+  font: $text-section-title;
+  color: $text-color-highlight;
 }
 
 p {
-    font-family: 'Inter',sans-serif;
-    line-height: 1.7;
+  font: $text-base;
+}
+
+button {
+  font: $text-button;
+  cursor: pointer;
+}
+
+a {
+  font: $text-button;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48;
 }
 </style>

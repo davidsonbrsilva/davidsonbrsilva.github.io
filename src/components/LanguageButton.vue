@@ -14,14 +14,8 @@ const changeLocale = (locale: string) => {
 </script>
 
 <template>
-  <button
-    class="button-language"
-    :class="{ active: isMenuOpen }"
-    type="button"
-    @click="isMenuOpen = !isMenuOpen"
-  >
-    <i class="material-symbols-outlined">translate</i
-    >{{ $t('header.chooseALanguageButton') }}
+  <button class="button-language" :class="{ active: isMenuOpen }" type="button" @click="isMenuOpen = !isMenuOpen">
+    <i class="material-symbols-outlined">translate</i>{{ $t('header.chooseALanguageButton') }}
   </button>
   <menu class="menu" v-if="isMenuOpen">
     <li v-for="locale in $i18n.availableLocales">
@@ -39,29 +33,29 @@ const changeLocale = (locale: string) => {
   border-radius: 50%;
   outline: none;
   border: none;
-  color: #c9c9c9;
+  color: $button-text-secondary-normal;
   background: transparent;
   cursor: pointer;
   margin-left: 1rem;
 
   &:hover {
-    color: white;
+    color: $button-text-secondary-hover;
   }
 
   &.active {
-    color: #ffaa00;
+    color: $button-text-secondary-active;
   }
 }
 
 .menu {
-  background-color: #262626;
+  background-color: $background-color-elevation;
   border-radius: 0.5rem;
   position: absolute;
   top: 36px;
   right: 0;
   padding: 0.5rem 0;
   overflow: hidden;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  @include shadow;
 
   li {
     list-style: none;
@@ -74,10 +68,10 @@ const changeLocale = (locale: string) => {
     background: transparent;
     outline: none;
     border: none;
-    color: white;
+    color: $button-text-secondary-normal;
 
     &:hover {
-      background-color: #1a1a1a;
+      background-color: $button-background-secondary-hover;
     }
   }
 }

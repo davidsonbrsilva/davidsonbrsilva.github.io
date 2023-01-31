@@ -2,18 +2,16 @@
   <aside class="container">
     <img src="https://github.com/davidsonbrsilva.png" class="image-profile" />
     <p>
-      Thank you for your visit! I am a developer with a degree in Information
-      Systems from Federal University of the Jequitinhonha and Mucuri Valleys
-      and I've been worked as a lead developer at dti digital
-      (@dtidigitalcrafters). In the programming world, I am mainly interested in
-      Artificial Intelligence, Compilers and Web Development.
+      Thank you for your visit! I am a developer with a degree in Information Systems from Federal University of the
+      Jequitinhonha and Mucuri Valleys and I've been worked as a lead developer at dti digital (@dtidigitalcrafters). In
+      the programming world, I am mainly interested in Artificial Intelligence, Compilers and Web Development.
     </p>
   </aside>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 .container {
-  background-color: var(--accent-light);
+  background-color: $background-color-accent;
   width: calc(100% - 2rem);
   height: 100%;
   position: absolute;
@@ -23,6 +21,7 @@
   flex-direction: column;
   align-items: center;
   padding: 4rem 1rem;
+  display: none;
 }
 
 .image-profile {

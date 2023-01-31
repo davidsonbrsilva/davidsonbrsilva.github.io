@@ -12,4 +12,15 @@ export default defineConfig({
       '@locale': resolve(__dirname, './src/locale'),
     },
   },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `
+          @import "./src/styles/_colors.scss";
+          @import "./src/styles/_typography.scss";
+          @import "./src/styles/_shadows.scss";
+        `,
+      },
+    },
+  },
 });
