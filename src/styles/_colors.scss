@@ -1,0 +1,54 @@
+:root {
+  --color-dark-10: #1a1a1a;
+  --color-dark-15: #262626;
+  --color-dark-20: #333333;
+  --color-dark-25: #404040;
+  --color-light-79: #c9c9c9;
+  --color-light-86: #dbdbdb;
+  --color-light-93: #ededed;
+  --color-light-100: #ffffff;
+  --color-accent-dark: #e59900;
+  --color-accent-normal: #ffaa00;
+  --color-accent-light: #ffbf40;
+}
+
+$background-color-base: var(--color-dark-10);
+$background-color-accent: var(--color-accent-light);
+$background-color-elevation: var(--color-dark-15);
+$border-color-normal: var(--color-dark-20);
+$border-color-hover: var(--color-dark-25);
+$text-color-base: var(--color-light-79);
+$text-color-highlight: var(--color-accent-light);
+
+$text-base: var(--font-base);
+
+$button-background-primary-normal: var(--color-accent-light);
+$button-background-primary-hover: var(--color-accent-normal);
+$button-background-secondary-normal: var(--color-dark-15);
+$button-background-secondary-hover: var(--color-dark-20);
+
+$button-text-primary: var(--color-dark-10);
+$button-text-secondary-normal: var(--color-light-79);
+$button-text-secondary-hover: var(--color-light-100);
+$button-text-secondary-active: var(--color-accent-light);
+
+$button-border-secondary: var(--color-dark-20);
+
+@media (prefers-color-scheme: light) {
+  $background-color-base: var(--color-light-93);
+  $background-color-elevation: var(--color-light-86);
+  $border-color-normal: var(--color-light-79);
+  $text-color-base: var(--color-dark-25);
+  $text-color-highlight: var(--color-accent-light);
+
+  $button-background-primary-normal: var(--color-accent-light);
+  $button-background-primary-hover: var(--color-accent-normal);
+  $button-background-secondary-normal: var(--color-light-86);
+  $button-background-secondary-hover: var(--color-light-79);
+
+  $button-text-primary: var(--color-dark-10);
+  $button-text-secondary-normal: var(--color-dark-25);
+  $button-text-secondary-hover: var(--color-dark-20);
+
+  $button-border-secondary: var(--color-dark-20);
+}

@@ -29,9 +29,7 @@ const socialBadges = [
     <h2 class="subtitle">{{ $t('homepage.subtitle') }}</h2>
     <ul class="social">
       <li v-for="badge in socialBadges">
-        <a :href="badge.url"
-          ><i class="material-symbols-outlined"></i>{{ badge.name }}</a
-        >
+        <a :href="badge.url"><i class="material-symbols-outlined"></i>{{ badge.name }}</a>
       </li>
     </ul>
   </main>
@@ -44,17 +42,11 @@ const socialBadges = [
 }
 
 .title {
-  font: bold 2rem 'Inter', sans-serif;
-  color: #ffbf40;
-  font-family: 'Inter', sans-serif;
   text-align: center;
 }
 
 .subtitle {
-  font: normal 1.5rem 'Inter', sans-serif;
-  color: #c9c9c9;
   text-align: center;
-  font-weight: normal;
   padding-bottom: 2rem;
 }
 
@@ -76,8 +68,8 @@ const socialBadges = [
 
   a {
     text-decoration: none;
-    color: #c9c9c9;
-    background-color: #262626;
+    color: $button-text-secondary-normal;
+    background-color: $background-color-elevation;
     padding: 0.25rem 0.5rem;
     border-radius: 0.25rem;
   }

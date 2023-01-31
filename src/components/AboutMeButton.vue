@@ -1,5 +1,5 @@
 <template>
-  <button type="button" class="button-about-me">
+  <button type="button" class="button button-about-me">
     <i class="material-symbols-outlined satisfied">sentiment_satisfied</i>
     <i class="material-symbols-outlined happy">mood</i>
     {{ $t('header.aboutMeButton') }}
@@ -16,9 +16,9 @@
   padding: 0.2rem;
   padding-right: 0.8rem;
   border-radius: 2rem;
-  font: bold 0.8125rem 'Inter', sans-serif;
-  color: #1a1a1a;
-  background-color: #ffbf40;
+  font-weight: bold;
+  color: $button-text-primary;
+  background-color: $button-background-primary-normal;
   transition: 0.3s;
 
   i {
@@ -34,7 +34,7 @@
   }
 
   &:hover {
-    background-color: #ffaa00;
+    background-color: $button-background-primary-hover;
 
     i.satisfied {
       display: none;

@@ -1,0 +1,10 @@
+:root {
+  --font-base: 'Inter', sans-serif;
+}
+
+$text-base: bold 1rem/1.7 var(--font-base);
+$text-title: bold 2rem/1.7 var(--font-base);
+$text-subtitle: normal 1.5rem/1.7 var(--font-base);
+$text-section-title: normal 1rem/1.7 var(--font-base);
+$text-button: normal 0.8125rem/1.7 var(--font-base);
+$text-label: normal 0.8125rem/1.7 var(--font-base);
