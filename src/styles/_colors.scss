@@ -13,14 +13,11 @@
 }
 
 $background-color-base: var(--color-dark-10);
-$background-color-accent: var(--color-accent-light);
 $background-color-elevation: var(--color-dark-15);
 $border-color-normal: var(--color-dark-20);
 $border-color-hover: var(--color-dark-25);
 $text-color-base: var(--color-light-79);
 $text-color-highlight: var(--color-accent-light);
-
-$text-base: var(--font-base);
 
 $button-background-primary-normal: var(--color-accent-light);
 $button-background-primary-hover: var(--color-accent-normal);
@@ -32,7 +29,8 @@ $button-text-secondary-normal: var(--color-light-79);
 $button-text-secondary-hover: var(--color-light-100);
 $button-text-secondary-active: var(--color-accent-light);
 
-$button-border-secondary: var(--color-dark-20);
+$badge-background: var(--color-dark-20);
+$card-text-title: var(--color-light-100);
 
 @media (prefers-color-scheme: light) {
   $background-color-base: var(--color-light-93);

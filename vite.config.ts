@@ -10,6 +10,8 @@ export default defineConfig({
       '@components': resolve(__dirname, './src/components'),
       '@views': resolve(__dirname, './src/views'),
       '@locale': resolve(__dirname, './src/locale'),
+      '@assets': resolve(__dirname, './src/assets'),
+      '@utils': resolve(__dirname, './src/utils'),
     },
   },
   css: {
