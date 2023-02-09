@@ -1,14 +1,12 @@
 <script setup lang="ts">
 import Portfolio from '@views/Pages/Portfolio.vue';
 import Page from '@views/Page.vue';
-import Sidebar from '@views/Sidebar.vue';
-import Button from '@components/Button.vue';
-import { onMounted } from 'vue';
 </script>
 
 <template>
-  <Sidebar />
-  <Page><Portfolio /></Page>
+  <Page>
+    <Portfolio />
+  </Page>
 </template>
 
 <style lang="scss">
@@ -54,7 +52,13 @@ p {
 }
 
 a {
-  font: $text-button;
+  font: $text-link;
+  color: $text-color-highlight;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 .material-symbols-outlined {

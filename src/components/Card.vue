@@ -1,34 +1,45 @@
 <script setup lang="ts">
 import Badge from './Badge.vue';
 
-const { title, description, actions, badges } = defineProps<{
+const { title, link, description, image, actions, badges } = defineProps<{
   title: string;
-  description: string;
-  actions: {
+  badges: string[];
+  description?: string;
+  link?: string;
+  image?: string;
+  actions?: {
     name: string;
     url: string;
-    iconPath: string;
+    icon: string;
   }[];
-  badges: string[];
 }>();
 </script>
 
 <template>
   <div class="card-container">
-    <header>
-      <h4>{{ title }}</h4>
-      <ul>
-        <li v-for="action in actions">
-          <a :href="action.url">
-            <i><img :src="action.iconPath" /></i>{{ action.name }}</a
-          >
-        </li>
-      </ul>
-    </header>
-    <p>{{ description }}</p>
-    <footer>
-      <Badge v-for="badge in badges" :label-name="badge" />
-    </footer>
+    <figure v-if="image">
+      <a v-if="link" :href="link" target="_blank"><img :src="image" /></a>
+      <img v-else :src="image" />
+    </figure>
+    <div class="content-wrapper">
+      <header>
+        <a v-if="link" :href="link" target="_blank">
+          <h4>{{ title }}</h4>
+        </a>
+        <h4 v-else>{{ title }}</h4>
+        <ul v-if="actions">
+          <li v-for="action in actions">
+            <a :href="action.url" target="_blank">
+              <i><img :src="action.icon" /></i>{{ action.name }}</a
+            >
+          </li>
+        </ul>
+      </header>
+      <p v-if="description">{{ description }}</p>
+      <footer>
+        <Badge v-for="badge in badges" :label-name="badge" />
+      </footer>
+    </div>
   </div>
 </template>
 
@@ -36,9 +47,29 @@ const { title, description, actions, badges } = defineProps<{
 .card-container {
   background-color: $background-color-elevation;
   border-radius: 0.5rem;
-  padding: 1.5rem;
   border: 1px solid $border-color-normal;
-  max-width: 37.5rem;
+  width: 100%;
+  max-width: 36.25rem;
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+}
+
+.content-wrapper {
+  padding: 1.5rem;
+}
+
+figure {
+  width: 100%;
+  background-color: tomato;
+  flex-shrink: 0;
+
+  img {
+    max-width: 100%;
+
+    object-fit: cover;
+    height: 100%;
+  }
 }
 
 header {
@@ -46,6 +77,7 @@ header {
   align-items: center;
   justify-content: space-between;
   padding-bottom: 1rem;
+  column-gap: 1rem;
 
   h4 {
     padding-bottom: 0;
@@ -73,10 +105,23 @@ header {
   }
 }
 
+p {
+  padding-bottom: 1rem;
+}
+
 footer {
-  padding-top: 1rem;
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
+}
+
+@media only screen and (min-width: 580px) {
+  .card-container {
+    flex-direction: row;
+  }
+
+  figure {
+    width: 200px;
+  }
 }
 </style>

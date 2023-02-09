@@ -1,26 +1,22 @@
 <script setup lang="ts">
-import { useI18n } from 'vue-i18n';
-
 const {
   labelName,
+  isActive,
   iconName,
-  hideLabel = false,
-  isMenuOpen,
+  isLabelHidden = false,
 } = defineProps<{
   labelName: string;
+  isActive: boolean;
   iconName?: string;
-  hideLabel?: boolean;
-  isMenuOpen: boolean;
+  isLabelHidden?: boolean;
 }>();
-
-const i18n = useI18n();
 </script>
 
 <template>
   <div class="menu">
-    <button :class="{ active: isMenuOpen }" type="button" @click="$emit('toggleMenu')">
+    <button :class="{ active: isActive }" type="button" @click="$emit('toggle')">
       <i v-if="iconName" class="material-symbols-outlined">{{ iconName }}</i>
-      <span :class="{ hideLabel }">{{ labelName }}</span>
+      <span v-show="!isLabelHidden">{{ labelName }}</span>
     </button>
     <slot></slot>
   </div>
@@ -50,9 +46,5 @@ button {
   &.active {
     color: $button-text-secondary-active;
   }
-}
-
-.hideLabel {
-  font-size: 0;
 }
 </style>

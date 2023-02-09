@@ -1,15 +1,14 @@
 <script setup lang="ts">
-const { labelName, iconName, onClick } = defineProps<{
+const { labelName, iconName } = defineProps<{
   labelName: string;
   iconName?: string;
-  onClick?: () => void;
 }>();
 </script>
 
 <template>
   <li>
     <i class="material-symbols-outlined">{{ iconName }}</i>
-    <button type="button" @click="onClick">
+    <button type="button" @click="$emit('click')">
       {{ labelName }}
     </button>
   </li>
