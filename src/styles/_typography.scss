@@ -1,10 +1,11 @@
 :root {
-  --font-base: 'Inter', sans-serif;
+  --font-primary: 'Inter', sans-serif;
+  --font-secondary: 'IBM Plex Mono', serif;
 }
 
-$text-base: bold 1rem/1.7 var(--font-base);
-$text-title: bold 2rem/1.7 var(--font-base);
-$text-subtitle: normal 1.5rem/1.7 var(--font-base);
-$text-section-title: normal 1rem/1.7 var(--font-base);
-$text-button: normal 0.8125rem/1.7 var(--font-base);
-$text-label: normal 0.8125rem/1.7 var(--font-base);
+$text-base: normal 1rem/1.7 var(--font-primary);
+$text-title: bold 2rem/1.3 var(--font-primary);
+$text-subtitle: normal 1rem/1.3 var(--font-secondary);
+$text-section-title: 600 1rem/1.3 var(--font-secondary);
+$text-button: bold 0.8125rem/1.7 var(--font-primary);
+$text-label: normal 0.8125rem/1.7 var(--font-primary);
