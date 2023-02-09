@@ -2,10 +2,11 @@
   "compilerOptions": {
     "baseUrl": "src",
     "paths": {
-      //   "@/*": ["src/*"]
       "@components/*": ["components/*"],
       "@views/*": ["views/*"],
-      "@locale": ["locale/index.ts"]
+      "@locale/*": ["locale/*"],
+      "@assets/*": ["assets/*"],
+      "@utils/*": ["utils/*"]
     },
     "target": "ESNext",
     "useDefineForClassFields": true,

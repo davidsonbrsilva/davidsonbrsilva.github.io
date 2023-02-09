@@ -1,16 +1,23 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 
-const isInLightMode = ref(false);
+const { iconOn, iconOff } = defineProps<{
+  iconOn?: string;
+  iconOff?: string;
+  helpTextOn: string;
+  helpTextOff: string;
+}>();
+
+const isOn = ref(false);
 </script>
 
 <template>
-  <input v-model="isInLightMode" type="checkbox" id="theme-mode-toggle" class="checkbox" />
+  <input v-model="isOn" type="checkbox" id="theme-mode-toggle" class="checkbox" />
   <label for="theme-mode-toggle" class="toggle-button">
-    <i class="material-symbols-outlined dark-mode">dark_mode</i>
-    <i class="material-symbols-outlined light-mode">light_mode</i>
+    <i v-if="iconOn" class="material-symbols-outlined icon-on">{{ iconOn }}</i>
+    <i v-if="iconOff" class="material-symbols-outlined icon-off">{{ iconOff }}</i>
     <span>
-      {{ isInLightMode ? $t('header.switchToLightModeButton') : $t('header.switchToDarkModeButton') }}
+      {{ isOn ? helpTextOn : helpTextOff }}
     </span>
   </label>
 </template>
@@ -30,15 +37,11 @@ const isInLightMode = ref(false);
       border: 1px solid $border-color-hover;
     }
 
-    // &:after {
-    // background-color: ;
-    // }
-
-    i.dark-mode {
+    i.icon-on {
       opacity: 0;
     }
 
-    i.light-mode {
+    i.icon-off {
       color: $text-color-base;
       opacity: 1;
     }
@@ -80,13 +83,13 @@ const isInLightMode = ref(false);
     position: absolute;
     font-size: 1rem;
 
-    &.dark-mode {
+    &.icon-on {
       opacity: 1;
       left: 5px;
       color: $text-color-base;
     }
 
-    &.light-mode {
+    &.icon-off {
       opacity: 0;
       right: 5px;
     }

@@ -1,16 +1,12 @@
 <script setup lang="ts">
-import Header from '@components/Header.vue';
-import Footer from '@components/Footer.vue';
-
-import Homepage from '@views/Homepage.vue';
+import Portfolio from '@views/Pages/Portfolio.vue';
+import Page from '@views/Page.vue';
 </script>
 
 <template>
-  <div class="light">
-    <Header />
-    <Homepage />
-    <Footer />
-  </div>
+  <Page>
+    <Portfolio />
+  </Page>
 </template>
 
 <style lang="scss">
@@ -41,19 +37,28 @@ h2 {
 h3 {
   font: $text-section-title;
   color: $text-color-highlight;
+  padding-bottom: 1rem;
+}
+
+h4 {
+  font: $text-section-title;
+  color: $text-color-base;
+  padding-bottom: 1rem;
 }
 
 p {
   font: $text-base;
-}
-
-button {
-  font: $text-button;
-  cursor: pointer;
+  color: $text-color-base;
 }
 
 a {
-  font: $text-button;
+  font: $text-link;
+  color: $text-color-highlight;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 .material-symbols-outlined {
