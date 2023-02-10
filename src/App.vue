@@ -5,13 +5,23 @@ import Page from '@views/Page.vue';
 
 import { ref } from 'vue';
 
-const isAboutMeSectionClosed = ref(true);
+const isAboutMeSectionOpen = ref(false);
+const hitAboutMeButton = ref(false);
+
+const handleAboutMeButton = () => {
+  isAboutMeSectionOpen.value = true;
+  hitAboutMeButton.value = true;
+};
 </script>
 
 <template>
   <div class="container">
-    <AboutMe :is-closed="isAboutMeSectionClosed" @close="isAboutMeSectionClosed = true" />
-    <Page @click-about-me="isAboutMeSectionClosed = false">
+    <AboutMe
+      :is-open="isAboutMeSectionOpen"
+      :is-animation-enabled="hitAboutMeButton"
+      @close="isAboutMeSectionOpen = false"
+    />
+    <Page @click-about-me="handleAboutMeButton">
       <Portfolio />
     </Page>
   </div>
@@ -30,10 +40,6 @@ html {
 
 body {
   background-color: $background-color-base;
-}
-
-img {
-  max-width: 100%;
 }
 
 h1 {

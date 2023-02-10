@@ -1,38 +1,31 @@
 <script setup lang="ts">
-defineProps<{
+import MenuButton from '@components/MenuButton.vue';
+
+const { isOpen = false, isAnimationEnabled = false } = defineProps<{
   isOpen: boolean;
+  isAnimationEnabled?: boolean;
 }>();
 </script>
 
 <template>
-  <section class="container">
+  <section
+    class="section-container"
+    :class="{ open: isOpen && isAnimationEnabled, closed: !isOpen && isAnimationEnabled }"
+  >
+    <MenuButton label-name="Close" icon-name="close" class="close-button" @click="$emit('close')" />
     <figure>
       <img src="/src/assets/images/profile.jpg" />
     </figure>
     <div class="content-wrapper">
       <section>
-        <h3>Sobre mim</h3>
-        <p>
-          Obrigado por sua visita! Sou programador formado em Sistemas de Informação pela Universidade Federal dos Vales
-          do Jequitinhonha e Mucuri e atualmente trabalho como desenvolvedor líder na dti digital (@dtidigitalcrafters).
-          No mundo da programação, interesso-me, principalmente, por Inteligência Artificial, Compiladores e
-          Desenvolvimento Web.
-        </p>
+        <h3>{{ $t('aboutMe.sections.aboutMe.title') }}</h3>
+        <p v-html="$t('aboutMe.sections.aboutMe.paragraph')"></p>
       </section>
       <section>
-        <h3>Precisa de mim para um trabalho?</h3>
+        <h3>{{ $t('aboutMe.sections.job.title') }}</h3>
         <div class="paragraph-wrapper">
-          <p>
-            Possuo experiência de mercado em desenvolvimento de APIs com microsserviços em .Net (C#) e desenvolvimento
-            de interfaces de usuário com React e React Native. Possuo conhecimento sólido em CSS e SASS, HTML semântico
-            e JavaScript nas versões mais recentes a partir do ECMAScript 6. Busco, atualmente, aperfeiçoamento em
-            frameworks como Vue e Svelte e em minhas habilidades com o inglês.
-          </p>
-          <p>
-            Conheço as boas práticas apontadas pelas arquiteturas Clean, Onion e Hexagonal, bem como DDD (Domain-Driven
-            Development), DevOps e construção de esteiras de CI/CD. Também me identifico bastante com assuntos
-            relacionados à UX/UI. Veja mais informações no meu perfil do LinkedIn.
-          </p>
+          <p v-html="$t('aboutMe.sections.job.paragraph1')"></p>
+          <p v-html="$t('aboutMe.sections.job.paragraph2')"></p>
         </div>
       </section>
     </div>
@@ -40,7 +33,37 @@ defineProps<{
 </template>
 
 <style scoped lang="scss">
-.container {
+@keyframes close-up {
+  0% {
+    height: 100vh;
+    min-height: 100vh;
+    opacity: 1;
+    padding: 1rem;
+  }
+  100% {
+    height: 0;
+    min-height: 0;
+    opacity: 0;
+    padding: 0;
+  }
+}
+
+@keyframes open-down {
+  0% {
+    height: 0;
+    min-height: 0;
+    opacity: 0;
+    padding: 0;
+  }
+  100% {
+    height: 100vh;
+    min-height: 100vh;
+    opacity: 1;
+    padding: 1rem;
+  }
+}
+
+.section-container {
   min-height: 100vh;
   background-color: $background-color-base;
   padding: 1rem;
@@ -48,6 +71,26 @@ defineProps<{
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
+  overflow: hidden;
+  height: 0;
+  min-height: 0;
+  opacity: 0;
+  padding: 0;
+
+  &.open {
+    animation: open-down 0.5s ease-in 0s 1 normal forwards;
+  }
+
+  &.closed {
+    animation: close-up 0.5s ease-in 0s 1 normal forwards;
+  }
+}
+
+.close-button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
 }
 
 .content-wrapper {
@@ -70,6 +113,10 @@ figure {
   border-radius: 50%;
   overflow: hidden;
   margin-bottom: 2rem;
+
+  img {
+    max-width: 100%;
+  }
 }
 
 p {
@@ -85,6 +132,12 @@ p {
     display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: 1.5rem;
+  }
+}
+
+@media only screen and (min-width: 680px) {
+  .content-wrapper {
+    max-width: 680px;
   }
 }
 
