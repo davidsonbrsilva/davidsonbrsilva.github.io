@@ -8,11 +8,13 @@ const { iconOn, iconOff } = defineProps<{
   helpTextOff: string;
 }>();
 
+const emit = defineEmits(['click']);
+
 const isOn = ref(false);
 </script>
 
 <template>
-  <input v-model="isOn" type="checkbox" id="theme-mode-toggle" class="checkbox" />
+  <input v-model="isOn" type="checkbox" id="theme-mode-toggle" class="checkbox" @click="emit('click')" />
   <label for="theme-mode-toggle" class="toggle-button">
     <i v-if="iconOn" class="material-symbols-outlined icon-on">{{ iconOn }}</i>
     <i v-if="iconOff" class="material-symbols-outlined icon-off">{{ iconOff }}</i>

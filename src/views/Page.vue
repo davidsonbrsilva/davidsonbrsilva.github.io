@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { ref } from 'vue';
+import { onMounted, ref } from 'vue';
 import { useI18n } from 'vue-i18n';
 
 import { languages } from '@locale/index';
@@ -15,9 +15,18 @@ import socials from '@utils/socials';
 const i18n = useI18n();
 
 const isTranslateMenuOpen = ref(false);
+const bodyElement = ref<HTMLBodyElement | null>(null);
+
+onMounted(() => {
+  bodyElement.value = document.getElementsByTagName('body')[0];
+});
 
 const changeLocale = (locale: string) => {
   i18n.locale.value = locale;
+};
+
+const toggleTheme = () => {
+  bodyElement.value?.classList.toggle('light-theme');
 };
 </script>
 
@@ -46,6 +55,7 @@ const changeLocale = (locale: string) => {
         icon-off="light_mode"
         help-text-on="{{ $t('header.switchToLightMode') }}"
         help-text-off="{{ $t('header.switchToDarkMode') }}"
+        @click="toggleTheme"
       />
     </nav>
   </header>
