@@ -82,6 +82,8 @@ header {
   h4 {
     padding-bottom: 0;
     color: $card-text-title;
+    text-overflow: ellipsis;
+    overflow: hidden;
   }
 
   ul {
@@ -100,6 +102,13 @@ header {
 
       img {
         width: 1.5rem;
+        filter: $icon-normal;
+      }
+
+      &:hover {
+        img {
+          filter: $icon-hover;
+        }
       }
     }
   }

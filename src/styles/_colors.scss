@@ -10,6 +10,24 @@
   --color-accent-dark: #e59900;
   --color-accent-normal: #ffaa00;
   --color-accent-light: #ffbf40;
+  --color-icon-normal: invert(93%) sepia(9%) saturate(20%) hue-rotate(322deg) brightness(88%) contrast(87%);
+  --color-icon-hover: invert(94%) sepia(99%) saturate(0%) hue-rotate(237deg) brightness(103%) contrast(101%);
+}
+
+.light-theme {
+  --color-light-79: #404040;
+  --color-light-86: #333333;
+  --color-light-93: #262626;
+  --color-light-100: #1a1a1a;
+  --color-dark-10: #ffffff;
+  --color-dark-15: #ededed;
+  --color-dark-20: #dbdbdb;
+  --color-dark-25: #c9c9c9;
+  --color-accent-dark: #cc3629;
+  --color-accent-normal: #e53d2e;
+  --color-accent-light: #ff4433;
+  --color-icon-normal: invert(10%) sepia(9%) saturate(31%) hue-rotate(25deg) brightness(101%) contrast(100%);
+  --color-icon-hover: filter: invert(7%) sepia(2%) saturate(33%) hue-rotate(332deg) brightness(115%) contrast(95%);
 }
 
 $background-color-base: var(--color-dark-10);
@@ -31,22 +49,6 @@ $button-text-secondary-active: var(--color-accent-light);
 
 $badge-background: var(--color-dark-20);
 $card-text-title: var(--color-light-100);
+$icon-normal: var(--color-icon-normal);
+$icon-hover: var(--color-icon-hover);
 
-@media (prefers-color-scheme: light) {
-  $background-color-base: var(--color-light-93);
-  $background-color-elevation: var(--color-light-86);
-  $border-color-normal: var(--color-light-79);
-  $text-color-base: var(--color-dark-25);
-  $text-color-highlight: var(--color-accent-light);
-
-  $button-background-primary-normal: var(--color-accent-light);
-  $button-background-primary-hover: var(--color-accent-normal);
-  $button-background-secondary-normal: var(--color-light-86);
-  $button-background-secondary-hover: var(--color-light-79);
-
-  $button-text-primary: var(--color-dark-10);
-  $button-text-secondary-normal: var(--color-dark-25);
-  $button-text-secondary-hover: var(--color-dark-20);
-
-  $button-border-secondary: var(--color-dark-20);
-}

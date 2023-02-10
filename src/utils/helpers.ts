@@ -1,4 +1,4 @@
-export const mapSnakeCaseToSentence = (text: string) =>
+export const mapKebabeCaseToSentence = (text: string) =>
   text
     .split('-')
     .map((word) => `${word[0].toUpperCase()}${word.substring(1)}`)

@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue';
-import { useI18n } from 'vue-i18n';
 import axios from 'axios';
 
 import { projects } from '@locale/en';
@@ -9,7 +8,7 @@ import Badge from '@components/Badge.vue';
 import Card from '@components/Card.vue';
 
 import socials from '@utils/socials';
-import { mapSnakeCaseToSentence, mapProjectNameToCamelCase } from '@utils/helpers';
+import { mapKebabeCaseToSentence, mapProjectNameToCamelCase } from '@utils/helpers';
 
 interface Action {
   name: string;
@@ -33,7 +32,6 @@ interface MediumPost {
   actions: Action[];
 }
 
-const { t } = useI18n();
 const githubProjects = ref<GithubProject[]>();
 const mediumPosts = ref<MediumPost[]>();
 
@@ -99,12 +97,11 @@ onMounted(() => {
     </div>
     <ul class="social-links">
       <li v-for="social in socials">
-        <a :href="social.url" target="_blank">
-          <Badge
-            :label-name="social.label"
-            :imageIcon="`/src/assets/icons/${social.label.toLocaleLowerCase()}-icon.svg`"
-          />
-        </a>
+        <Badge
+          :label-name="social.label"
+          :url="social.url"
+          :imageIcon="`/src/assets/icons/${social.label.toLocaleLowerCase()}-icon.svg`"
+        />
       </li>
     </ul>
   </section>
@@ -121,7 +118,7 @@ onMounted(() => {
             name: $t(`portfolio.sections.githubProjects.actions.${action.name}`),
           }))
         "
-        :badges="project.topics.map((topic) => mapSnakeCaseToSentence(topic))"
+        :badges="project.topics.map((topic) => mapKebabeCaseToSentence(topic))"
       />
     </div>
   </section>
@@ -134,7 +131,7 @@ onMounted(() => {
         :link="post.link"
         :actions="post.actions"
         :image="post.thumbnail"
-        :badges="post.categories.map((category) => mapSnakeCaseToSentence(category))"
+        :badges="post.categories.map((category) => mapKebabeCaseToSentence(category))"
       />
     </div>
   </section>
