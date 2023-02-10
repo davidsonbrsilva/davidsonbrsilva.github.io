@@ -112,6 +112,7 @@ onMounted(() => {
         v-for="project in githubProjects"
         :title="project.name"
         :description="$t(`portfolio.sections.githubProjects.projects.${mapProjectNameToCamelCase(project.name)}`)"
+        :url="project.html_url"
         :actions="
           project.actions.map((action) => ({
             ...action,
@@ -128,7 +129,7 @@ onMounted(() => {
       <Card
         v-for="post in mediumPosts"
         :title="post.title"
-        :link="post.link"
+        :url="post.link"
         :actions="post.actions"
         :image="post.thumbnail"
         :badges="post.categories.map((category) => mapKebabeCaseToSentence(category))"

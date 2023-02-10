@@ -1,12 +1,20 @@
 <script setup lang="ts">
+import AboutMe from '@views/AboutMe.vue';
 import Portfolio from '@views/Pages/Portfolio.vue';
 import Page from '@views/Page.vue';
+
+import { ref } from 'vue';
+
+const isAboutMeSectionClosed = ref(true);
 </script>
 
 <template>
-  <Page>
-    <Portfolio />
-  </Page>
+  <div class="container">
+    <AboutMe :is-closed="isAboutMeSectionClosed" @close="isAboutMeSectionClosed = true" />
+    <Page @click-about-me="isAboutMeSectionClosed = false">
+      <Portfolio />
+    </Page>
+  </div>
 </template>
 
 <style lang="scss">
@@ -22,6 +30,10 @@ html {
 
 body {
   background-color: $background-color-base;
+}
+
+img {
+  max-width: 100%;
 }
 
 h1 {

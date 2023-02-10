@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import Badge from './Badge.vue';
 
-const { title, link, description, image, actions, badges } = defineProps<{
+const { title, url, description, image, actions, badges } = defineProps<{
   title: string;
   badges: string[];
   description?: string;
-  link?: string;
+  url?: string;
   image?: string;
   actions?: {
     name: string;
@@ -18,20 +18,20 @@ const { title, link, description, image, actions, badges } = defineProps<{
 <template>
   <div class="card-container">
     <figure v-if="image">
-      <a v-if="link" :href="link" target="_blank"><img :src="image" /></a>
+      <a v-if="url" :href="url" target="_blank"><img :src="image" /></a>
       <img v-else :src="image" />
     </figure>
     <div class="content-wrapper">
       <header>
-        <a v-if="link" :href="link" target="_blank">
+        <a v-if="url" :href="url" target="_blank">
           <h4>{{ title }}</h4>
         </a>
         <h4 v-else>{{ title }}</h4>
         <ul v-if="actions">
           <li v-for="action in actions">
             <a :href="action.url" target="_blank">
-              <i><img :src="action.icon" /></i>{{ action.name }}</a
-            >
+              <i><img :src="action.icon" /></i>{{ action.name }}
+            </a>
           </li>
         </ul>
       </header>
@@ -61,7 +61,6 @@ const { title, link, description, image, actions, badges } = defineProps<{
 
 figure {
   width: 100%;
-  background-color: tomato;
   flex-shrink: 0;
 
   img {

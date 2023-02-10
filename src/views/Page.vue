@@ -16,13 +16,28 @@ const i18n = useI18n();
 
 const isTranslateMenuOpen = ref(false);
 const bodyElement = ref<HTMLBodyElement | null>(null);
+const translateMenuElement = ref<InstanceType<typeof Menu> | null>(null);
+const translateMenuButtonElement = ref<InstanceType<typeof MenuButton> | null>(null);
+const nav = ref(null);
 
 onMounted(() => {
   bodyElement.value = document.getElementsByTagName('body')[0];
+
+  window.addEventListener('click', (event) => {
+    const hasClickedOnTranslateMenu = (translateMenuElement.value?.root as any as Node).contains(event.target as Node);
+    const hasClickedOnTranslateMenuButton = (translateMenuButtonElement.value?.root as any as Node).contains(
+      event.target as Node
+    );
+
+    if (!hasClickedOnTranslateMenu && !hasClickedOnTranslateMenuButton) {
+      isTranslateMenuOpen.value = false;
+    }
+  });
 });
 
 const changeLocale = (locale: string) => {
   i18n.locale.value = locale;
+  isTranslateMenuOpen.value = false;
 };
 
 const toggleTheme = () => {
@@ -32,16 +47,19 @@ const toggleTheme = () => {
 
 <template>
   <header>
-    <Button icon-default="sentiment_satisfied" icon-hover="mood">{{ $t('header.aboutMe') }}</Button>
-    <nav>
+    <Button icon-default="sentiment_satisfied" icon-hover="mood" @click="$emit('clickAboutMe')">
+      {{ $t('header.aboutMe') }}
+    </Button>
+    <nav ref="nav">
       <MenuButton
         label-name="Teste"
         icon-name="translate"
         is-label-hidden
         :is-active="isTranslateMenuOpen"
         @toggle="isTranslateMenuOpen = !isTranslateMenuOpen"
+        ref="translateMenuButtonElement"
       >
-        <Menu v-show="isTranslateMenuOpen">
+        <Menu v-show="isTranslateMenuOpen" ref="translateMenuElement">
           <MenuItem
             v-for="locale in $i18n.availableLocales"
             :label-name="languages[locale as keyof typeof languages]"
@@ -107,6 +125,7 @@ footer {
 
 .social-links {
   display: flex;
+  flex-wrap: wrap;
 
   li {
     list-style: none;

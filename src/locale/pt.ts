@@ -37,7 +37,7 @@ export default {
         actions,
       },
       mediumPosts: {
-        title: 'Publicações',
+        title: 'Postagens',
       },
     },
   },
