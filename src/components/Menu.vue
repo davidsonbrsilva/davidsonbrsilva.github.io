@@ -1,5 +1,15 @@
+<script setup lang="ts">
+import { ref } from 'vue';
+
+const root = ref(null);
+
+defineExpose({
+  root,
+});
+</script>
+
 <template>
-  <menu>
+  <menu ref="root">
     <slot></slot>
   </menu>
 </template>

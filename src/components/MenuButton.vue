@@ -1,19 +1,27 @@
 <script setup lang="ts">
+import { ref } from 'vue';
+
 const {
   labelName,
-  isActive,
   iconName,
+  isActive = false,
   isLabelHidden = false,
 } = defineProps<{
   labelName: string;
-  isActive: boolean;
   iconName?: string;
+  isActive?: boolean;
   isLabelHidden?: boolean;
 }>();
+
+const root = ref(null);
+
+defineExpose({
+  root,
+});
 </script>
 
 <template>
-  <div class="menu">
+  <div class="container" ref="root">
     <button :class="{ active: isActive }" type="button" @click="$emit('toggle')">
       <i v-if="iconName" class="material-symbols-outlined">{{ iconName }}</i>
       <span v-show="!isLabelHidden">{{ labelName }}</span>
@@ -23,7 +31,7 @@ const {
 </template>
 
 <style lang="scss" scoped>
-.menu {
+.container {
   position: relative;
 }
 
