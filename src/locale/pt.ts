@@ -21,6 +21,22 @@ export const actions = {
 };
 
 export default {
+  aboutMe: {
+    sections: {
+      aboutMe: {
+        title: 'Sobre mim',
+        paragraph:
+          'Obrigado por sua visita! Sou programador formado em Sistemas de Informação pela <a href="http://portal.ufvjm.edu.br/" target="_blank">Universidade Federal dos Vales do Jequitinhonha e Mucuri</a> e atualmente trabalho como desenvolvedor líder na <a href="https://www.dtidigital.com.br/" target="_blank">dti digital</a>. No mundo da programação, interesso-me, principalmente, por Inteligência Artificial, Compiladores e Desenvolvimento Web.',
+      },
+      job: {
+        title: 'Precisa de mim para um trabalho?',
+        paragraph1:
+          'Possuo experiência de mercado em desenvolvimento de APIs com microsserviços em .Net (C#) e desenvolvimento de interfaces de usuário com React e React Native. Possuo conhecimento sólido em CSS e SASS, HTML semântico e JavaScript nas versões mais recentes a partir do ECMAScript 6. Busco, atualmente, aperfeiçoamento em frameworks como Vue e Svelte e em minhas habilidades com o inglês.',
+        paragraph2:
+          'Conheço as boas práticas apontadas pelas arquiteturas Clean, Onion e Hexagonal, bem como DDD (Domain-Driven Development), DevOps e construção de esteiras de CI/CD. Também me identifico bastante com assuntos relacionados à UX/UI. Veja mais informações no meu perfil do <a href="https://www.linkedin.com/in/davidsonbrsilva/" target="_blank">LinkedIn</a>.',
+      },
+    },
+  },
   header: {
     aboutMe: 'Sobre mim',
     switchToDarkMode: 'Mudar para o Modo Escuro',

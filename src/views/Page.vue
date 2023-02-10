@@ -13,6 +13,7 @@ import MenuItem from '@components/MenuItem.vue';
 import socials from '@utils/socials';
 
 const i18n = useI18n();
+const emit = defineEmits(['clickAboutMe']);
 
 const isTranslateMenuOpen = ref(false);
 const bodyElement = ref<HTMLBodyElement | null>(null);
@@ -47,7 +48,7 @@ const toggleTheme = () => {
 
 <template>
   <header>
-    <Button icon-default="sentiment_satisfied" icon-hover="mood" @click="$emit('clickAboutMe')">
+    <Button icon-default="sentiment_satisfied" icon-hover="mood" @click="emit('clickAboutMe')">
       {{ $t('header.aboutMe') }}
     </Button>
     <nav ref="nav">
@@ -144,6 +145,7 @@ footer {
   }
 
   a {
+    font: $text-label;
     color: $text-color-base;
   }
 }

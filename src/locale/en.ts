@@ -20,6 +20,22 @@ export const actions = {
 };
 
 export default {
+  aboutMe: {
+    sections: {
+      aboutMe: {
+        title: 'About me',
+        paragraph:
+          'Thank you for your visit! I am a developer with a degree in Information Systems from <a href="http://portal.ufvjm.edu.br/" target="_blank">Federal University of the Jequitinhonha and Mucuri Valleys</a> and I\'ve been worked as a lead developer at <a href="https://www.dtidigital.com.br/" target="_blank">dti digital</a>. In the programming world, I am mainly interested in Artificial Intelligence, Compilers and Web Development.',
+      },
+      job: {
+        title: 'Need me for a job?',
+        paragraph1:
+          'I have market experience in developing APIs with microservices in .Net (C#) and developing user interfaces with React and React Native. I have solid knowledge in CSS and SASS, semantic HTML and JavaScript in the latest versions from ECMAScript 6. I am currently looking for improvement in frameworks such as Vue and Svelte and in my English skills.',
+        paragraph2:
+          'I know the best practices pointed out by the Clean, Onion and Hexagonal architectures, as well as DDD (Domain-Driven Development), DevOps and building CI/CD mats. I also relate a lot to UX/UI issues. See more information on my <a href="https://www.linkedin.com/in/davidsonbrsilva/" target="_blank">LinkedIn</a> profile.',
+      },
+    },
+  },
   header: {
     aboutMe: 'About me',
     switchToDarkMode: 'Change to dark mode',
