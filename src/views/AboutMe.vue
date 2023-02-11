@@ -12,7 +12,12 @@ const { isOpen = false, isAnimationEnabled = false } = defineProps<{
     class="section-container"
     :class="{ open: isOpen && isAnimationEnabled, closed: !isOpen && isAnimationEnabled }"
   >
-    <MenuButton label-name="Close" icon-name="close" class="close-button" @click="$emit('close')" />
+    <MenuButton
+      :label-name="$t('aboutMe.sections.aboutMe.closeButton')"
+      icon-name="close"
+      class="close-button"
+      @click="$emit('close')"
+    />
     <figure>
       <img src="/src/assets/images/profile.jpg" />
     </figure>

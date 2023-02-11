@@ -120,6 +120,7 @@ onMounted(() => {
           }))
         "
         :badges="project.topics.map((topic) => mapKebabeCaseToSentence(topic))"
+        class="card"
       />
     </div>
   </section>
@@ -133,6 +134,7 @@ onMounted(() => {
         :actions="post.actions"
         :image="post.thumbnail"
         :badges="post.categories.map((category) => mapKebabeCaseToSentence(category))"
+        class="card"
       />
     </div>
   </section>
@@ -189,5 +191,14 @@ h3 {
   justify-content: center;
   flex-wrap: wrap;
   gap: 1rem;
+}
+
+.card {
+  border-color: $border-color-normal;
+  transition: opacity 0.2s ease-in;
+
+  &:hover {
+    border-color: $border-color-hover;
+  }
 }
 </style>
