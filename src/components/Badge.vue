@@ -1,7 +1,8 @@
 <script setup lang="ts">
-const { labelName, imageIcon, url } = defineProps<{
+const { labelName, iconImage, iconDescription, url } = defineProps<{
   labelName: string;
-  imageIcon?: string;
+  iconImage?: string;
+  iconDescription?: string;
   url?: string;
 }>();
 </script>
@@ -9,12 +10,12 @@ const { labelName, imageIcon, url } = defineProps<{
 <template>
   <a v-if="url" :href="url" target="_blank">
     <span>
-      <i v-if="imageIcon"><img :src="imageIcon" /></i>
+      <i v-if="iconImage"><img :src="iconImage" :alt="iconDescription" /></i>
       {{ labelName }}
     </span>
   </a>
   <span v-else>
-    <i v-if="imageIcon"><img :src="imageIcon" /></i>
+    <i v-if="iconImage"><img :src="iconImage" :alt="iconDescription" /></i>
     {{ labelName }}
   </span>
 </template>

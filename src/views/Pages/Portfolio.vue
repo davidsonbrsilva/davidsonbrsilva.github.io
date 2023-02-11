@@ -100,7 +100,8 @@ onMounted(() => {
         <Badge
           :label-name="social.label"
           :url="social.url"
-          :imageIcon="`icons/${social.label.toLocaleLowerCase()}-icon.svg`"
+          :icon-image="`icons/${social.label.toLocaleLowerCase()}-icon.svg`"
+          :icon-description="`${social.label} icon`"
         />
       </li>
     </ul>

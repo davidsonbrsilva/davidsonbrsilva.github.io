@@ -79,11 +79,11 @@ const toggleTheme = () => {
     </nav>
   </header>
 
-  <main class="main">
+  <main>
     <slot></slot>
   </main>
 
-  <footer class="footer">
+  <footer>
     <p>&copy {{ new Date().getFullYear() }} Davidson Bruno</p>
     <ul class="social-links">
       <li v-for="social in socials">
@@ -116,20 +116,30 @@ header {
 footer {
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
+  flex-direction: column;
+  // flex-wrap: wrap;
   column-gap: 1rem;
+  // padding-bottom: 1.5rem;
 
   p {
     font: $text-label;
+    color: $text-color-disabled;
+    padding-bottom: 0.5rem;
+    text-align: center;
   }
 }
 
 .social-links {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+  // padding-bottom: 0.5rem;
+  // width: 100%;
 
   li {
     list-style: none;
+    // line-height: 1;
+    // display: flex;
 
     &:after {
       content: '|';
@@ -137,16 +147,25 @@ footer {
       color: $border-color-normal;
     }
 
-    &:last-child {
-      &:after {
-        content: '';
-      }
+    &:last-child:after {
+      content: '';
+      padding: 0;
     }
   }
 
   a {
     font: $text-label;
     color: $text-color-base;
+  }
+}
+
+@media only screen and (min-width: 580px) {
+  footer {
+    flex-direction: row;
+
+    p {
+      padding-bottom: 0;
+    }
   }
 }
 </style>
