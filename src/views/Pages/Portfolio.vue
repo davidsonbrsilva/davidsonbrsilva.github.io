@@ -41,14 +41,14 @@ const buildGithubProjectActions = (project: GithubProject) => {
   project.actions.push({
     name: 'github',
     url: project.html_url,
-    icon: '/src/assets/icons/github-icon.svg',
+    icon: 'icons/github-icon.svg',
   });
 
   if (project.homepage) {
     project.actions.push({
       name: 'website',
       url: project.homepage,
-      icon: '/src/assets/icons/external-link-icon.svg',
+      icon: 'icons/external-link-icon.svg',
     });
   }
 
@@ -61,7 +61,7 @@ const buildMediumPostActions = (post: MediumPost) => {
   post.actions.push({
     name: 'website',
     url: post.link,
-    icon: '/src/assets/icons/external-link-icon.svg',
+    icon: 'icons/external-link-icon.svg',
   });
 
   return post;
@@ -100,7 +100,7 @@ onMounted(() => {
         <Badge
           :label-name="social.label"
           :url="social.url"
-          :imageIcon="`/src/assets/icons/${social.label.toLocaleLowerCase()}-icon.svg`"
+          :imageIcon="`icons/${social.label.toLocaleLowerCase()}-icon.svg`"
         />
       </li>
     </ul>
