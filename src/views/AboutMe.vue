@@ -19,7 +19,7 @@ const { isOpen = false, isAnimationEnabled = false } = defineProps<{
       @click="$emit('close')"
     />
     <figure>
-      <img src="/src/assets/images/profile.jpg" />
+      <img src="/src/assets/images/profile.jpg" alt="Davidson's profile image" />
     </figure>
     <div class="content-wrapper">
       <section>
@@ -118,7 +118,7 @@ figure {
   min-height: 200px;
   border-radius: 50%;
   overflow: hidden;
-  margin-bottom: 2rem;
+  margin: 4rem 0 2rem 0;
 
   img {
     max-width: 100%;

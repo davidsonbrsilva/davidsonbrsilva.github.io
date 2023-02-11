@@ -18,7 +18,7 @@ const { title, url, description, image, actions, badges } = defineProps<{
 <template>
   <div class="card-container">
     <figure v-if="image">
-      <a v-if="url" :href="url" target="_blank"><img :src="image" /></a>
+      <a v-if="url" :href="url" target="_blank"><img :src="image" href="Card thumbnail" /></a>
       <img v-else :src="image" />
     </figure>
     <div class="content-wrapper">
@@ -30,7 +30,7 @@ const { title, url, description, image, actions, badges } = defineProps<{
         <ul v-if="actions">
           <li v-for="action in actions">
             <a :href="action.url" target="_blank">
-              <i><img :src="action.icon" /></i>{{ action.name }}
+              <i><img :src="action.icon" :alt="`${action.name} icon`" /></i>{{ action.name }}
             </a>
           </li>
         </ul>
