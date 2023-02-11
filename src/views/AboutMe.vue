@@ -40,7 +40,7 @@ const { isOpen = false, isAnimationEnabled = false } = defineProps<{
 <style scoped lang="scss">
 @keyframes close-up {
   0% {
-    height: 100vh;
+    height: auto;
     min-height: 100vh;
     opacity: 1;
     padding: 1rem;
@@ -61,7 +61,7 @@ const { isOpen = false, isAnimationEnabled = false } = defineProps<{
     padding: 0;
   }
   100% {
-    height: 100vh;
+    height: auto;
     min-height: 100vh;
     opacity: 1;
     padding: 1rem;
@@ -76,6 +76,7 @@ const { isOpen = false, isAnimationEnabled = false } = defineProps<{
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  flex-shrink: 0;
   position: relative;
   overflow: hidden;
   height: 0;
@@ -84,11 +85,11 @@ const { isOpen = false, isAnimationEnabled = false } = defineProps<{
   padding: 0;
 
   &.open {
-    animation: open-down 0.5s ease-in 0s 1 normal forwards;
+    animation: open-down 0.5s ease-out 0s 1 normal forwards;
   }
 
   &.closed {
-    animation: close-up 0.5s ease-in 0s 1 normal forwards;
+    animation: close-up 0.5s ease-out 0s 1 normal forwards;
   }
 }
 
