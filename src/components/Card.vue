@@ -18,18 +18,20 @@ const { title, url, description, image, actions, badges } = defineProps<{
 <template>
   <div class="card-container">
     <figure v-if="image">
-      <a v-if="url" :href="url" target="_blank"><img :src="image" href="Card thumbnail" /></a>
-      <img v-else :src="image" />
+      <a v-if="url" :href="url" target="_blank" :aria-label="`Access external link to ${title}`"
+        ><img :src="image" alt="Card thumbnail"
+      /></a>
+      <img v-else :src="image" alt="Card thumbnail" />
     </figure>
     <div class="content-wrapper">
       <header>
-        <a v-if="url" :href="url" target="_blank">
+        <a v-if="url" :href="url" target="_blank" :aria-label="`Access external link to ${title}`">
           <h4>{{ title }}</h4>
         </a>
         <h4 v-else>{{ title }}</h4>
         <ul v-if="actions">
           <li v-for="action in actions">
-            <a :href="action.url" target="_blank">
+            <a :href="action.url" target="_blank" :aria-label="`Access external link to ${action.name}`">
               <i><img :src="action.icon" :alt="`${action.name} icon`" /></i>{{ action.name }}
             </a>
           </li>
