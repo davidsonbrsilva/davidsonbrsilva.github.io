@@ -19,7 +19,7 @@ const { isOpen = false, isAnimationEnabled = false } = defineProps<{
       @click="$emit('close')"
     />
     <figure>
-      <img src="/src/assets/images/profile.jpg" alt="Davidson's profile image" width="200" height="200" />
+      <img src="https://github.com/davidsonbrsilva.png" alt="Davidson's profile image" width="200" height="200" />
     </figure>
     <div class="content-wrapper">
       <section>
