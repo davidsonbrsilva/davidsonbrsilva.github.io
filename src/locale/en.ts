@@ -20,6 +20,8 @@ export const actions = {
 };
 
 export default {
+  loadingMessage: 'Loading...',
+  genericErrorMessage: 'Something went wrong. Check your internet connection.',
   aboutMe: {
     sections: {
       aboutMe: {

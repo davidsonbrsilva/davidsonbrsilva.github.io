@@ -6,6 +6,7 @@ import { projects } from '@locale/en';
 
 import Badge from '@components/Badge.vue';
 import Card from '@components/Card.vue';
+import Loader from '@components/Loader.vue';
 
 import socials from '@utils/socials';
 import { mapKebabeCaseToSentence, mapProjectNameToCamelCase } from '@utils/helpers';
@@ -33,7 +34,12 @@ interface MediumPost {
 }
 
 const githubProjects = ref<GithubProject[]>();
+const isGithubProjectsLoading = ref(false);
+const hasGithubProjectsError = ref(false);
+
 const mediumPosts = ref<MediumPost[]>();
+const isMediumPostsLoading = ref(false);
+const hasMediumPostsError = ref(false);
 
 const buildGithubProjectActions = (project: GithubProject) => {
   project.actions = [];
@@ -68,18 +74,33 @@ const buildMediumPostActions = (post: MediumPost) => {
 };
 
 const getGithubProjects = async () => {
-  await axios.get('https://api.github.com/users/davidsonbrsilva/repos').then((response) => {
-    githubProjects.value = (response.data as GithubProject[])
-      .filter((project) => Object.keys(projects).includes(mapProjectNameToCamelCase(project.name)))
-      .map((project) => buildGithubProjectActions(project));
-  });
+  isGithubProjectsLoading.value = true;
+  await axios
+    .get('https://api.github.com/users/davidsonbrsilva/repos')
+    .then((response) => {
+      githubProjects.value = (response.data as GithubProject[])
+        .filter((project) => Object.keys(projects).includes(mapProjectNameToCamelCase(project.name)))
+        .map((project) => buildGithubProjectActions(project));
+
+      isGithubProjectsLoading.value = false;
+    })
+    .catch(() => {
+      isGithubProjectsLoading.value = false;
+      hasGithubProjectsError.value = true;
+    });
 };
 
 const getMediumPosts = async () => {
+  isMediumPostsLoading.value = true;
   await axios
     .get('https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@davidsonbrsilva')
     .then((response) => {
       mediumPosts.value = (response.data.items as MediumPost[]).map((post) => buildMediumPostActions(post));
+      isMediumPostsLoading.value = false;
+    })
+    .catch(() => {
+      isMediumPostsLoading.value = false;
+      hasMediumPostsError.value = true;
     });
 };
 
@@ -108,7 +129,9 @@ onMounted(() => {
   </section>
   <section>
     <h3>{{ $t('portfolio.sections.githubProjects.title') }}</h3>
-    <div class="cards">
+    <Loader v-if="isGithubProjectsLoading" />
+    <p v-else-if="hasGithubProjectsError" class="error">{{ $t('genericErrorMessage') }}</p>
+    <div v-else class="cards">
       <Card
         v-for="project in githubProjects"
         :title="project.name"
@@ -127,7 +150,9 @@ onMounted(() => {
   </section>
   <section>
     <h3>{{ $t('portfolio.sections.mediumPosts.title') }}</h3>
-    <div class="cards">
+    <Loader v-if="isMediumPostsLoading" />
+    <p v-else-if="hasMediumPostsError" class="error">{{ $t('genericErrorMessage') }}</p>
+    <div v-else class="cards">
       <Card
         v-for="post in mediumPosts"
         :title="post.title"
@@ -201,5 +226,9 @@ h3 {
   &:hover {
     border-color: $border-color-hover;
   }
+}
+
+.error {
+  text-align: center;
 }
 </style>

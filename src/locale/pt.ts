@@ -21,6 +21,8 @@ export const actions = {
 };
 
 export default {
+  loadingMessage: 'Loading...',
+  genericErrorMessage: 'Algo deu errado. Verifique sua conexão com a internet.',
   aboutMe: {
     sections: {
       aboutMe: {
