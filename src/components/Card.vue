@@ -18,10 +18,10 @@ const { title, url, description, image, actions, badges } = defineProps<{
 <template>
   <div class="card-container">
     <figure v-if="image">
-      <a v-if="url" :href="url" target="_blank" :aria-label="`Access external link to ${title}`"
-        ><img :src="image" alt="Card thumbnail"
-      /></a>
-      <img v-else :src="image" alt="Card thumbnail" />
+      <a v-if="url" :href="url" target="_blank" :aria-label="`Access external link to ${title}`">
+        <img :src="image" alt="Card thumbnail" width="640" height="360" />
+      </a>
+      <img v-else :src="image" alt="Card thumbnail" width="640" height="360" />
     </figure>
     <div class="content-wrapper">
       <header>
@@ -32,7 +32,7 @@ const { title, url, description, image, actions, badges } = defineProps<{
         <ul v-if="actions">
           <li v-for="action in actions">
             <a :href="action.url" target="_blank" :aria-label="`Access external link to ${action.name}`">
-              <i><img :src="action.icon" :alt="`${action.name} icon`" /></i>{{ action.name }}
+              <i><img :src="action.icon" :alt="`${action.name} icon`" width="32" height="32" /></i>{{ action.name }}
             </a>
           </li>
         </ul>
@@ -67,7 +67,6 @@ figure {
 
   img {
     max-width: 100%;
-
     object-fit: cover;
     height: 100%;
   }

@@ -10,12 +10,12 @@ const { labelName, iconImage, iconDescription, url } = defineProps<{
 <template>
   <a v-if="url" :href="url" target="_blank">
     <span>
-      <i v-if="iconImage"><img :src="iconImage" :alt="iconDescription" /></i>
+      <i v-if="iconImage"><img :src="iconImage" :alt="iconDescription" width="32" height="32" /></i>
       {{ labelName }}
     </span>
   </a>
   <span v-else>
-    <i v-if="iconImage"><img :src="iconImage" :alt="iconDescription" /></i>
+    <i v-if="iconImage"><img :src="iconImage" :alt="iconDescription" width="32" height="32" /></i>
     {{ labelName }}
   </span>
 </template>
