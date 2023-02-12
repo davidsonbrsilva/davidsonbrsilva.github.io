@@ -15,15 +15,18 @@ import socials from '@utils/socials';
 const i18n = useI18n();
 const emit = defineEmits(['clickAboutMe']);
 
+const isLightTheme = ref(false);
 const isTranslateMenuOpen = ref(false);
 const bodyElement = ref<HTMLBodyElement | null>(null);
 const translateMenuElement = ref<InstanceType<typeof Menu> | null>(null);
 const translateMenuButtonElement = ref<InstanceType<typeof MenuButton> | null>(null);
 const nav = ref(null);
 
-onMounted(() => {
-  bodyElement.value = document.getElementsByTagName('body')[0];
+const getTheme = () => localStorage.getItem('theme');
 
+const getMediaPreference = () => (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+
+const handleTranslateMenu = () => {
   window.addEventListener('click', (event) => {
     const hasClickedOnTranslateMenu = (translateMenuElement.value?.root as any as Node).contains(event.target as Node);
     const hasClickedOnTranslateMenuButton = (translateMenuButtonElement.value?.root as any as Node).contains(
@@ -34,6 +37,18 @@ onMounted(() => {
       isTranslateMenuOpen.value = false;
     }
   });
+};
+
+onMounted(() => {
+  bodyElement.value = document.getElementsByTagName('body')[0];
+  const userTheme = getTheme() || getMediaPreference();
+
+  if (userTheme === 'light') {
+    bodyElement.value?.classList.add('light-theme');
+    isLightTheme.value = true;
+  }
+
+  handleTranslateMenu();
 });
 
 const changeLocale = (locale: string) => {
@@ -43,6 +58,7 @@ const changeLocale = (locale: string) => {
 
 const toggleTheme = () => {
   bodyElement.value?.classList.toggle('light-theme');
+  localStorage.setItem('theme', bodyElement.value?.classList.contains('light-theme') ? 'light' : 'dark');
 };
 </script>
 
@@ -70,6 +86,7 @@ const toggleTheme = () => {
       </MenuButton>
 
       <Toggle
+        :is-on="isLightTheme"
         icon-on="dark_mode"
         icon-off="light_mode"
         help-text-on="{{ $t('header.switchToLightMode') }}"
@@ -117,9 +134,7 @@ footer {
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  // flex-wrap: wrap;
   column-gap: 1rem;
-  // padding-bottom: 1.5rem;
 
   p {
     font: $text-label;
@@ -133,13 +148,9 @@ footer {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  // padding-bottom: 0.5rem;
-  // width: 100%;
 
   li {
     list-style: none;
-    // line-height: 1;
-    // display: flex;
 
     &:after {
       content: '|';
