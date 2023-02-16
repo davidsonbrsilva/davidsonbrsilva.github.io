@@ -10,6 +10,7 @@ import Loader from '@components/Loader.vue';
 
 import socials from '@utils/socials';
 import { mapKebabeCaseToSentence, mapProjectNameToCamelCase } from '@utils/helpers';
+import Skeleton from '@components/Skeleton.vue';
 
 interface Action {
   name: string;
@@ -129,7 +130,11 @@ onMounted(() => {
   </section>
   <section>
     <h3>{{ $t('portfolio.sections.githubProjects.title') }}</h3>
-    <Loader v-if="isGithubProjectsLoading" />
+    <div class="cards" v-if="isMediumPostsLoading">
+      <Skeleton />
+      <Skeleton />
+      <Skeleton />
+    </div>
     <p v-else-if="hasGithubProjectsError" class="error">{{ $t('genericErrorMessage') }}</p>
     <div v-else class="cards">
       <Card
@@ -150,7 +155,11 @@ onMounted(() => {
   </section>
   <section>
     <h3>{{ $t('portfolio.sections.mediumPosts.title') }}</h3>
-    <Loader v-if="isMediumPostsLoading" />
+    <div class="cards" v-if="isMediumPostsLoading">
+      <Skeleton />
+      <Skeleton />
+      <Skeleton />
+    </div>
     <p v-else-if="hasMediumPostsError" class="error">{{ $t('genericErrorMessage') }}</p>
     <div v-else class="cards">
       <Card
