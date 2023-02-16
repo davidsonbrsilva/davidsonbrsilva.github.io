@@ -11,7 +11,8 @@ export const projects = {
     'Sparks Music Library is a library of classes built in .Net 5 for recognition, extraction and transposition of musical chords.',
   dialogger:
     'Dialogger is a fun yes-or-no question-and-answer web application built to practice UI development with CSS in React and custom event handling in JavaScript.',
-  davidsonbrsilvaGithubIo: 'This project, built in Vue.JS, refers to the portfolio site you are currently viewing.',
+  davidsonbrsilvaGithubIo:
+    'This is the website you are seeing right now, built to be a space for publicizing my main creations.',
 };
 
 export const actions = {

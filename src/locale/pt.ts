@@ -12,7 +12,7 @@ export const projects = {
   dialogger:
     'Dialogger é uma aplicação web de perguntas e respostas divertida construída para praticar desenvolvimento de UI com CSS em React e manipulação de eventos customizados em JavaScript.',
   davidsonbrsilvaGithubIo:
-    'Este projeto, construído em Vue.JS, se refere ao site de portfólio que você está vendo neste momento.',
+    'Este é o website que você está vendo neste momento, construído para ser um espaço de divulgação das minhas principais criações públicas.',
 };
 
 export const actions = {
