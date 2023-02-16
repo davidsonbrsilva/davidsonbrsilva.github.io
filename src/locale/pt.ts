@@ -7,7 +7,7 @@ export const projects = {
     'Hufzip é um compressor de arquivos de texto baseado no algoritmo de Huffman. Possui caráter didático e foi construído com o único propósito de aprendizado sobre métodos de compressão de arquivos. Arquivos comprimidos com Hufzip possuem a extensão .hfz.',
   gongo:
     'Gongo é um chat simples construído para fins de aprendizado sobre sockets, fornecido com uma arquitetura cliente-servidor que permite que múltiplos usuários conversem simultaneamente através do protocolo TCP.',
-  sparksMusicLibray:
+  sparksMusicLibrary:
     'Sparks Music Library é uma biblioteca de classes construída em .Net 5 para reconhecimento, extração e transposição de acordes musicais.',
   dialogger:
     'Dialogger é uma aplicação web de perguntas e respostas divertida construída para praticar desenvolvimento de UI com CSS em React e manipulação de eventos customizados em JavaScript.',
