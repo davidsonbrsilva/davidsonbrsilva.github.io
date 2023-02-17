@@ -4,6 +4,11 @@ import Badge from './Badge.vue';
 const { title, url, description, image, actions, badges } = defineProps<{
   title: string;
   badges: string[];
+  details?: {
+    label: string;
+    icon?: string;
+    url?: string;
+  }[];
   description?: string;
   url?: string;
   image?: string;
@@ -25,11 +30,20 @@ const { title, url, description, image, actions, badges } = defineProps<{
     </figure>
     <div class="content-wrapper">
       <header>
-        <a v-if="url" :href="url" target="_blank" :aria-label="`Access external link to ${title}`">
-          <h4>{{ title }}</h4>
-        </a>
-        <h4 v-else>{{ title }}</h4>
-        <ul v-if="actions">
+        <div class="title-wrap">
+          <a v-if="url" :href="url" target="_blank" :aria-label="`Access external link to ${title}`">
+            <h4>{{ title }}</h4>
+          </a>
+          <h4 v-else>{{ title }}</h4>
+
+          <ul v-if="details" class="details">
+            <li v-for="detail in details">
+              <i v-if="detail.icon" class="material-symbols-outlined">{{ detail.icon }}</i>
+              {{ detail.label }}
+            </li>
+          </ul>
+        </div>
+        <ul v-if="actions" class="actions">
           <li v-for="action in actions">
             <a :href="action.url" target="_blank" :aria-label="`Access external link to ${action.name}`">
               <i><img :src="action.icon" :alt="`${action.name} icon`" width="32" height="32" /></i>{{ action.name }}
@@ -37,6 +51,7 @@ const { title, url, description, image, actions, badges } = defineProps<{
           </li>
         </ul>
       </header>
+
       <p v-if="description">{{ description }}</p>
       <footer>
         <Badge v-for="badge in badges" :label-name="badge" />
@@ -74,22 +89,37 @@ figure {
 
 header {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: space-between;
   padding-bottom: 1rem;
   column-gap: 1rem;
 
-  h4 {
-    padding-bottom: 0;
-    color: var(--color-card-title);
-    text-overflow: ellipsis;
-    overflow: hidden;
-  }
-
-  ul {
+  .title-wrap {
     display: flex;
+    column-gap: 1rem;
     align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    min-width: 0;
+
+    a {
+      min-width: 0;
+    }
+
+    h4 {
+      padding-bottom: 0;
+      color: var(--color-card-title);
+      text-overflow: ellipsis;
+      overflow: hidden;
+      min-width: 0;
+    }
   }
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  column-gap: 1rem;
 
   li {
     list-style: none;
@@ -97,7 +127,6 @@ header {
 
     a {
       font-size: 0;
-      padding: 0.5rem;
       display: block;
 
       img {
@@ -111,6 +140,23 @@ header {
         }
       }
     }
+  }
+}
+
+.details {
+  display: flex;
+  column-gap: 0.5rem;
+
+  li {
+    list-style: none;
+    display: flex;
+    align-items: center;
+  }
+
+  i {
+    font-size: 1rem;
+    color: var(--color-text-brand);
+    margin-right: 0.25rem;
   }
 }
 
