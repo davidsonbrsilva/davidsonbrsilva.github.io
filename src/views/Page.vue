@@ -18,7 +18,7 @@ const emit = defineEmits(['clickAboutMe']);
 
 const isLightTheme = ref(false);
 const isTranslateMenuOpen = ref(false);
-const isDaltonicModeEnabled = ref(false);
+const isColorblindModeEnabled = ref(false);
 const bodyElement = ref<HTMLBodyElement | null>(null);
 const translateMenuElement = ref<InstanceType<typeof Menu> | null>(null);
 const translateMenuButtonElement = ref<InstanceType<typeof MenuButton> | null>(null);
@@ -56,13 +56,13 @@ const handleTheming = () => {
   }
 };
 
-const handleDaltonicMode = () => {
+const handleColorblindMode = () => {
   bodyElement.value = document.getElementsByTagName('body')[0];
-  const daltonicMode = localStorage.getItem('daltonic');
+  const colorblindMode = localStorage.getItem('colorblind');
 
-  if (daltonicMode === 'on') {
-    bodyElement.value?.classList.add('daltonic');
-    isDaltonicModeEnabled.value = true;
+  if (colorblindMode === 'on') {
+    bodyElement.value?.classList.add('colorblind');
+    isColorblindModeEnabled.value = true;
   }
 };
 
@@ -83,15 +83,15 @@ const toggleTheme = () => {
   localStorage.setItem('theme', bodyElement.value?.classList.contains('light-theme') ? 'light' : 'dark');
 };
 
-const toggleDaltonicMode = () => {
-  bodyElement.value?.classList.toggle('daltonic');
-  localStorage.setItem('daltonic', bodyElement.value?.classList.contains('daltonic') ? 'on' : 'off');
-  isDaltonicModeEnabled.value = !isDaltonicModeEnabled.value;
+const toggleColorblindMode = () => {
+  bodyElement.value?.classList.toggle('colorblind');
+  localStorage.setItem('colorblind', bodyElement.value?.classList.contains('colorblind') ? 'on' : 'off');
+  isColorblindModeEnabled.value = !isColorblindModeEnabled.value;
 };
 
 onMounted(() => {
   handleTheming();
-  handleDaltonicMode();
+  handleColorblindMode();
   handleTranslateMenu();
   handleLanguage();
 });
@@ -104,6 +104,7 @@ onMounted(() => {
       icon-default="sentiment_satisfied"
       icon-hover="mood"
       @click="emit('clickAboutMe')"
+      :aria-label="$t('header.seeMoreInfoAboutDeveloper')"
     />
     <nav ref="nav">
       <MenuButton
@@ -112,6 +113,7 @@ onMounted(() => {
         :is-active="isTranslateMenuOpen"
         @toggle="isTranslateMenuOpen = !isTranslateMenuOpen"
         ref="translateMenuButtonElement"
+        :aria-label="$t('header.chooseALanguage')"
       >
         <Menu v-show="isTranslateMenuOpen" ref="translateMenuElement">
           <MenuItem
@@ -123,12 +125,12 @@ onMounted(() => {
       </MenuButton>
 
       <MenuButton
-        label-name="Eu sou daltônico"
+        :label-name="$t('header.iAmColorblind')"
         icon-name="visibility_off"
         active-icon-name="visibility"
         is-label-hidden
-        :is-active="isDaltonicModeEnabled"
-        @toggle="toggleDaltonicMode"
+        :is-active="isColorblindModeEnabled"
+        @toggle="toggleColorblindMode"
       />
 
       <Toggle
