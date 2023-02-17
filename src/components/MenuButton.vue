@@ -4,11 +4,13 @@ import { ref } from 'vue';
 const {
   labelName,
   iconName,
+  activeIconName,
   isActive = false,
   isLabelHidden = false,
 } = defineProps<{
   labelName: string;
   iconName?: string;
+  activeIconName?: string;
   isActive?: boolean;
   isLabelHidden?: boolean;
 }>();
@@ -23,8 +25,10 @@ defineExpose({
 <template>
   <div class="container" ref="root">
     <button :class="{ active: isActive }" type="button" @click="$emit('toggle')">
-      <i v-if="iconName" class="material-symbols-outlined">{{ iconName }}</i>
-      <span v-show="!isLabelHidden">{{ labelName }}</span>
+      <i v-if="iconName && !activeIconName" class="material-symbols-outlined">{{ iconName }}</i>
+      <i v-else-if="iconName && activeIconName && !isActive" class="material-symbols-outlined">{{ iconName }}</i>
+      <i v-if="iconName && activeIconName && isActive" class="material-symbols-outlined">{{ activeIconName }}</i>
+      <span v-show="!isLabelHidden" class="label">{{ labelName }}</span>
     </button>
     <slot></slot>
   </div>
@@ -53,6 +57,16 @@ button {
 
   &.active {
     color: var(--color-button-text-primary-active);
+  }
+}
+
+.label {
+  display: none;
+}
+
+@media only screen and (min-width: 380px) {
+  .label {
+    display: block;
   }
 }
 </style>

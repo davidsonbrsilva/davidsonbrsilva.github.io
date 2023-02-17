@@ -1,29 +1,16 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue';
-
-const { iconDefault, iconHover } = defineProps<{
+const { label, iconDefault, iconHover } = defineProps<{
+  label: string;
   iconDefault?: string;
   iconHover?: string;
 }>();
-
-const button = ref<HTMLElement | null>(null);
-
-const hasIcon = (button: HTMLElement | null) => button?.querySelector('i') != null;
-
-onMounted(() => {
-  if (button.value) {
-    if (hasIcon(button.value)) {
-      button.value.style.paddingLeft = '0.2rem';
-    }
-  }
-});
 </script>
 
 <template>
-  <button type="button" ref="button">
+  <button type="button">
     <i v-if="iconDefault" id="icon-default" class="material-symbols-outlined">{{ iconDefault }}</i>
     <i v-if="iconDefault && iconHover" id="icon-hover" class="material-symbols-outlined">{{ iconHover }}</i>
-    <slot></slot>
+    <span class="label">{{ label }}</span>
   </button>
 </template>
 
@@ -36,15 +23,19 @@ button {
   background: none;
   display: flex;
   align-items: center;
-  padding: 0.2rem 0.8rem;
+  padding: 0.2rem;
   border-radius: 2rem;
   color: var(--color-button-text-secondary);
   background-color: var(--color-button-background-primary-normal);
   transition: 0.3s;
   white-space: nowrap;
 
-  i {
-    margin-right: 0.4rem;
+  .label {
+    padding: 0 0.4rem;
+  }
+
+  i + .label {
+    display: none;
   }
 
   #icon-default {
@@ -58,15 +49,19 @@ button {
   &:hover {
     background-color: var(--color-button-background-primary-hover);
 
-    i {
-      margin-right: 0.4rem;
-    }
-
     #icon-default {
       display: none;
     }
 
     #icon-hover {
+      display: block;
+    }
+  }
+}
+
+@media only screen and (min-width: 300px) {
+  button {
+    i + .label {
       display: block;
     }
   }
