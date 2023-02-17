@@ -137,8 +137,8 @@ footer {
   column-gap: 1rem;
 
   p {
-    font: $text-label;
-    color: $text-color-disabled;
+    font: var(--text-label);
+    color: var(--color-text-disabled);
     padding-bottom: 0.5rem;
     text-align: center;
   }
@@ -155,7 +155,7 @@ footer {
     &:after {
       content: '|';
       padding: 0 0.5rem;
-      color: $border-color-normal;
+      color: var(--color-border-normal);
     }
 
     &:last-child:after {
@@ -165,8 +165,8 @@ footer {
   }
 
   a {
-    font: $text-label;
-    color: $text-color-base;
+    font: var(--text-label);
+    color: var(--color-text-normal);
   }
 }
 

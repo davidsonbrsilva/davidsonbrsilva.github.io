@@ -39,39 +39,39 @@ html {
 }
 
 body {
-  background-color: $background-color-base;
+  background-color: var(--color-background);
 }
 
 h1 {
-  font: $text-title;
-  color: $text-color-highlight;
+  font: var(--text-title);
+  color: var(--color-text-brand);
 }
 
 h2 {
-  font: $text-subtitle;
-  color: $text-color-base;
+  font: var(--text-subtitle);
+  color: var(--color-text-normal);
 }
 
 h3 {
-  font: $text-section-title;
-  color: $text-color-highlight;
+  font: var(--text-section-title);
+  color: var(--color-text-brand);
   padding-bottom: 1rem;
 }
 
 h4 {
-  font: $text-section-title;
-  color: $text-color-base;
+  font: var(--text-section-title);
+  color: var(--color-text-normal);
   padding-bottom: 1rem;
 }
 
 p {
-  font: $text-base;
-  color: $text-color-base;
+  font: var(--text-base);
+  color: var(--color-text-normal);
 }
 
 a {
-  font: $text-link;
-  color: $text-color-highlight;
+  font: var(--text-link);
+  color: var(--color-text-brand);
   text-decoration: none;
 
   &:hover {

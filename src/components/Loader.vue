@@ -20,15 +20,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: $background-color-base;
+  background-color: var(--color-background);
 }
 
 span {
   font-size: 0;
   width: 2.5rem;
   height: 2.5rem;
-  border: 0.25rem solid $background-color-elevation;
-  border-top: 0.25rem solid $background-color-hightlight;
+  border: 0.25rem solid var(--color-elevation);
+  border-top: 0.25rem solid var(--color-text-brand);
   animation: spin 2s linear infinite;
   border-radius: 50%;
 }

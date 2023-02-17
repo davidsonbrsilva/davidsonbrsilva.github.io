@@ -70,7 +70,7 @@ const { isOpen = false, isAnimationEnabled = false } = defineProps<{
 
 .section-container {
   min-height: 100vh;
-  background-color: $background-color-base;
+  background-color: var(--color-background);
   padding: 1rem;
   display: flex;
   flex-direction: column;

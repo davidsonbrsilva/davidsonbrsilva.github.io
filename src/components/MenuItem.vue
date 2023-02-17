@@ -25,12 +25,12 @@ li {
     background: transparent;
     outline: none;
     border: none;
-    color: $button-text-secondary-normal;
-    font: $text-label;
+    color: var(--color-button-text-primary-normal);
+    font: var(--text-label);
     cursor: pointer;
 
     &:hover {
-      background-color: $button-background-secondary-hover;
+      background-color: var(--color-button-background-secondary-hover);
     }
   }
 }
