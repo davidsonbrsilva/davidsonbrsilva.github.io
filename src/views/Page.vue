@@ -88,7 +88,7 @@ onMounted(() => {
     </Button>
     <nav ref="nav">
       <MenuButton
-        label-name="Teste"
+        label-name="{{ $t('header.chooseALanguage') }}"
         icon-name="translate"
         is-label-hidden
         :is-active="isTranslateMenuOpen"

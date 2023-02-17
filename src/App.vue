@@ -69,6 +69,11 @@ p {
   color: var(--color-text-normal);
 }
 
+li {
+  font: var(--text-label);
+  color: var(--color-text-normal);
+}
+
 a {
   font: var(--text-link);
   color: var(--color-text-brand);

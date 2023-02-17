@@ -6,7 +6,6 @@ import { projects } from '@locale/en';
 
 import Badge from '@components/Badge.vue';
 import Card from '@components/Card.vue';
-import Loader from '@components/Loader.vue';
 
 import socials from '@utils/socials';
 import { mapKebabeCaseToSentence, mapProjectNameToCamelCase } from '@utils/helpers';
@@ -18,12 +17,19 @@ interface Action {
   icon: string;
 }
 
+interface Detail {
+  label: string;
+  icon: string;
+}
+
 interface GithubProject {
   name: string;
+  language: string;
   homepage?: string;
   html_url: string;
   topics: string[];
   actions: Action[];
+  details: Detail[];
 }
 
 interface MediumPost {
@@ -62,6 +68,15 @@ const buildGithubProjectActions = (project: GithubProject) => {
   return project;
 };
 
+const buildGithubProjectDetails = (project: GithubProject) => {
+  project.details = [];
+
+  project.details.push({
+    label: project.language,
+    icon: 'code_blocks',
+  });
+};
+
 const buildMediumPostActions = (post: MediumPost) => {
   post.actions = [];
 
@@ -81,7 +96,11 @@ const getGithubProjects = async () => {
     .then((response) => {
       githubProjects.value = (response.data as GithubProject[])
         .filter((project) => Object.keys(projects).includes(mapProjectNameToCamelCase(project.name)))
-        .map((project) => buildGithubProjectActions(project));
+        .map((project) => {
+          buildGithubProjectActions(project);
+          buildGithubProjectDetails(project);
+          return project;
+        });
 
       isGithubProjectsLoading.value = false;
     })
@@ -148,6 +167,7 @@ onMounted(() => {
             name: $t(`portfolio.sections.githubProjects.actions.${action.name}`),
           }))
         "
+        :details="project.details"
         :badges="project.topics.map((topic) => mapKebabeCaseToSentence(topic))"
         class="card"
       />
