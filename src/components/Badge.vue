@@ -23,18 +23,18 @@ const { labelName, iconImage, iconDescription, url } = defineProps<{
 <style scoped lang="scss">
 a:hover {
   span {
-    color: $button-text-secondary-hover;
+    color: var(--color-button-text-primary-hover);
   }
   img {
-    filter: $icon-hover;
+    filter: var(--color-icon-hover);
   }
 }
 
 span {
-  font: $text-label;
-  color: $button-text-secondary-normal;
+  font: var(--text-label);
+  color: var(--color-button-text-primary-normal);
   border-radius: 0.25rem;
-  background-color: $badge-background;
+  background-color: var(--color-badge-background);
   padding: 0.25rem 0.5rem;
   display: flex;
   align-items: center;
@@ -48,7 +48,7 @@ span {
   img {
     width: 1rem;
     height: 1rem;
-    filter: $icon-normal;
+    filter: var(--color-icon-normal);
   }
 }
 </style>

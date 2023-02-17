@@ -29,7 +29,7 @@ onMounted(() => {
 
 <style scoped lang="scss">
 button {
-  font: $text-button;
+  font: var(--text-button);
   cursor: pointer;
   outline: none;
   border: none;
@@ -38,8 +38,8 @@ button {
   align-items: center;
   padding: 0.2rem 0.8rem;
   border-radius: 2rem;
-  color: $button-text-primary;
-  background-color: $button-background-primary-normal;
+  color: var(--color-button-text-secondary);
+  background-color: var(--color-button-background-primary-normal);
   transition: 0.3s;
   white-space: nowrap;
 
@@ -56,7 +56,7 @@ button {
   }
 
   &:hover {
-    background-color: $button-background-primary-hover;
+    background-color: var(--color-button-background-primary-hover);
 
     i {
       margin-right: 0.4rem;

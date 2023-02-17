@@ -21,9 +21,9 @@
 
 <style scoped lang="scss">
 .card-container {
-  background-color: $background-color-elevation;
+  background-color: var(--color-elevation);
   border-radius: 0.5rem;
-  border: 1px solid $border-color-normal;
+  border: 1px solid var(--color-border-normal);
   width: 100%;
   max-width: 36.25rem;
   display: flex;
@@ -36,7 +36,7 @@
 .title {
   width: 10rem;
   height: 1rem;
-  background-color: $badge-background;
+  background-color: var(--color-skeleton-item);
 }
 
 .header {
@@ -49,7 +49,7 @@
 .action {
   width: 24px;
   height: 24px;
-  background-color: $badge-background;
+  background-color: var(--color-skeleton-item);
   border-radius: 50%;
   margin: 0.75rem 0.5rem;
 }
@@ -64,7 +64,7 @@
 .paragraph {
   width: 100%;
   height: 1rem;
-  background-color: $badge-background;
+  background-color: var(--color-skeleton-item);
 
   &:last-child {
     width: 60%;
@@ -80,7 +80,7 @@
   width: 4rem;
   height: 2rem;
   border-radius: 0.25rem;
-  background-color: $badge-background;
+  background-color: var(--color-skeleton-item);
 
   &:nth-child(1) {
     flex-grow: 3;

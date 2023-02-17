@@ -1,56 +1,62 @@
 :root {
-  --color-dark-10: #1a1a1a;
-  --color-dark-15: #262626;
-  --color-dark-20: #333333;
-  --color-dark-25: #404040;
-  --color-light-79: #c9c9c9;
-  --color-light-86: #dbdbdb;
-  --color-light-93: #ededed;
-  --color-light-100: #ffffff;
-  --color-accent-dark: #e59900;
-  --color-accent-normal: #ffaa00;
-  --color-accent-light: #ffbf40;
-  --color-icon-normal: invert(93%) sepia(9%) saturate(20%) hue-rotate(322deg) brightness(88%) contrast(87%);
-  --color-icon-hover: invert(94%) sepia(99%) saturate(0%) hue-rotate(237deg) brightness(103%) contrast(101%);
+  --color-black-25: #404040;
+  --color-black-20: #333333;
+  --color-black-15: #262626;
+  --color-black-10: #1a1a1a;
+  --color-white-100: #ffffff;
+  --color-white-93: #ededed;
+  --color-white-86: #dbdbdb;
+  --color-white-79: #c9c9c9;
+  --color-yellow-normal: #ffbf40;
+  --color-yellow-dark: #ffaa00;
+  --color-red-normal: #ff4433;
+  --color-red-dark: #e53d2e;
+
+  --filter-white-79: invert(93%) sepia(9%) saturate(20%) hue-rotate(322deg) brightness(88%) contrast(87%);
+  --filter-white-100: invert(94%) sepia(99%) saturate(0%) hue-rotate(237deg) brightness(103%) contrast(101%);
+  --filter-black-25: invert(10%) sepia(9%) saturate(31%) hue-rotate(25deg) brightness(101%) contrast(100%);
+  --filter-black-10: filter: invert(7%) sepia(2%) saturate(33%) hue-rotate(332deg) brightness(115%) contrast(95%);
+
+  --color-background: var(--color-black-10);
+  --color-elevation: var(--color-black-15);
+  --color-border-normal: var(--color-black-20);
+  --color-border-hover: var(--color-black-25);
+  --color-border-brand: var(--color-yellow-normal);
+  --color-text-normal: var(--color-white-79);
+  --color-text-brand: var(--color-yellow-normal);
+  --color-text-disabled: var(--color-black-25);
+  --color-button-background-primary-normal: var(--color-yellow-normal);
+  --color-button-background-primary-hover: var(--color-yellow-dark);
+  --color-button-background-secondary-hover: var(--color-black-20);
+  --color-button-text-primary-normal: var(--color-white-79);
+  --color-button-text-primary-hover: var(--color-white-100);
+  --color-button-text-primary-active: var(--color-yellow-normal);
+  --color-button-text-secondary: var(--color-black-10);
+  --color-badge-background: var(--color-black-20);
+  --color-card-title: var(--color-white-100);
+  --color-icon-normal: var(--filter-white-79);
+  --color-icon-hover: var(--filter-white-100);
 }
 
 .light-theme {
-  --color-light-79: #404040;
-  --color-light-86: #333333;
-  --color-light-93: #262626;
-  --color-light-100: #1a1a1a;
-  --color-dark-10: #ffffff;
-  --color-dark-15: #ededed;
-  --color-dark-20: #dbdbdb;
-  --color-dark-25: #c9c9c9;
-  --color-accent-dark: #cc3629;
-  --color-accent-normal: #e53d2e;
-  --color-accent-light: #ff4433;
-  --color-icon-normal: invert(10%) sepia(9%) saturate(31%) hue-rotate(25deg) brightness(101%) contrast(100%);
-  --color-icon-hover: filter: invert(7%) sepia(2%) saturate(33%) hue-rotate(332deg) brightness(115%) contrast(95%);
+  --color-background: var(--color-white-100);
+  --color-elevation: var(--color-white-93);
+  --color-border-normal: var(--color-white-86);
+  --color-border-hover: var(--color-white-79);
+  --color-border-brand: var(--color-red-normal);
+  --color-text-normal: var(--color-black-25);
+  --color-text-brand: var(--color-red-normal);
+  --color-text-disabled: var(--color-white-79);
+  --color-button-background-primary-normal: var(--color-red-normal);
+  --color-button-background-primary-hover: var(--color-red-dark);
+  --color-button-background-secondary-hover: var(--color-white-86);
+  --color-button-text-primary-normal: var(--color-black-25);
+  --color-button-text-primary-hover: var(--color-black-10);
+  --color-button-text-primary-active: var(--color-red-normal);
+  --color-button-text-secondary: var(--color-white-100);
+  --color-badge-background: var(--color-white-86);
+  --color-skeleton-item: var(--color-white-86);
+  --color-card-title: var(--color-black-10);
+  --color-icon-normal: var(--filter-black-25);
+  --color-icon-hover: var(--filter-black-10);
 }
-
-$background-color-base: var(--color-dark-10);
-$background-color-elevation: var(--color-dark-15);
-$background-color-hightlight: var(--color-accent-light);
-$border-color-normal: var(--color-dark-20);
-$border-color-hover: var(--color-dark-25);
-$text-color-base: var(--color-light-79);
-$text-color-disabled: var(--color-dark-25);
-$text-color-highlight: var(--color-accent-light);
-
-$button-background-primary-normal: var(--color-accent-light);
-$button-background-primary-hover: var(--color-accent-normal);
-$button-background-secondary-normal: var(--color-dark-15);
-$button-background-secondary-hover: var(--color-dark-20);
-
-$button-text-primary: var(--color-dark-10);
-$button-text-secondary-normal: var(--color-light-79);
-$button-text-secondary-hover: var(--color-light-100);
-$button-text-secondary-active: var(--color-accent-light);
-
-$badge-background: var(--color-dark-20);
-$card-text-title: var(--color-light-100);
-$icon-normal: var(--color-icon-normal);
-$icon-hover: var(--color-icon-hover);
-

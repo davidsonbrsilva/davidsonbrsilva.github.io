@@ -37,10 +37,10 @@ defineExpose({
 
 button {
   padding: 0 0.5rem;
-  font: $text-button;
+  font: var(--text-button);
   outline: none;
   border: none;
-  color: $button-text-secondary-normal;
+  color: var(--color-button-text-primary-normal);
   background: transparent;
   cursor: pointer;
   display: flex;
@@ -48,11 +48,11 @@ button {
   column-gap: 0.5rem;
 
   &:hover {
-    color: $button-text-secondary-hover;
+    color: var(--color-button-text-primary-hover);
   }
 
   &.active {
-    color: $button-text-secondary-active;
+    color: var(--color-button-text-primary-active);
   }
 }
 </style>

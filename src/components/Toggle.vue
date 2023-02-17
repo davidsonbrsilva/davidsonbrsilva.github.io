@@ -36,12 +36,12 @@ const emit = defineEmits(['click']);
   visibility: hidden;
 
   &:checked + label {
-    background-color: $background-color-elevation;
-    border: 1px solid $border-color-normal;
+    background-color: var(--color-elevation);
+    border: 1px solid var(--color-border-normal);
     justify-content: flex-end;
 
     &:hover {
-      border: 1px solid $border-color-hover;
+      border: 1px solid var(--color-border-hover);
     }
 
     i.icon-on {
@@ -49,7 +49,7 @@ const emit = defineEmits(['click']);
     }
 
     i.icon-off {
-      color: $text-color-base;
+      color: var(--color-text-normal);
       opacity: 1;
     }
   }
@@ -62,7 +62,7 @@ const emit = defineEmits(['click']);
   align-items: center;
   justify-content: flex-start;
   background: #262626;
-  border: 1px solid $border-color-normal;
+  border: 1px solid var(--color-border-normal);
   border-radius: 1rem;
   cursor: pointer;
   padding: 0.125rem;
@@ -70,7 +70,7 @@ const emit = defineEmits(['click']);
   transition: 0.3s;
 
   &:hover {
-    border: 1px solid $border-color-hover;
+    border: 1px solid var(--color-border-hover);
   }
 
   &:after {
@@ -78,7 +78,7 @@ const emit = defineEmits(['click']);
     width: 1.4rem;
     height: 1.4rem;
     border-radius: 0.8rem;
-    background-color: $background-color-base;
+    background-color: var(--color-background);
     transition: 0.3s;
   }
 
@@ -93,7 +93,7 @@ const emit = defineEmits(['click']);
     &.icon-on {
       opacity: 1;
       left: 5px;
-      color: $text-color-base;
+      color: var(--color-text-normal);
     }
 
     &.icon-off {

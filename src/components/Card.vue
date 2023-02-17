@@ -47,9 +47,9 @@ const { title, url, description, image, actions, badges } = defineProps<{
 
 <style scoped lang="scss">
 .card-container {
-  background-color: $background-color-elevation;
+  background-color: var(--color-elevation);
   border-radius: 0.5rem;
-  border: 1px solid $border-color-normal;
+  border: 1px solid var(--color-border-normal);
   width: 100%;
   max-width: 36.25rem;
   display: flex;
@@ -81,7 +81,7 @@ header {
 
   h4 {
     padding-bottom: 0;
-    color: $card-text-title;
+    color: var(--color-card-title);
     text-overflow: ellipsis;
     overflow: hidden;
   }
@@ -102,12 +102,12 @@ header {
 
       img {
         width: 1.5rem;
-        filter: $icon-normal;
+        filter: var(--color-icon-normal);
       }
 
       &:hover {
         img {
-          filter: $icon-hover;
+          filter: var(--color-icon-hover);
         }
       }
     }

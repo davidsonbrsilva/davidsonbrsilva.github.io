@@ -191,7 +191,7 @@ section {
     display: block;
     width: 40px;
     height: 2px;
-    background-color: $background-color-elevation;
+    background-color: var(--color-elevation);
     margin: 1rem auto;
   }
 }
@@ -229,11 +229,11 @@ h3 {
 }
 
 .card {
-  border-color: $border-color-normal;
+  border-color: var(--color-border-normal);
   transition: opacity 0.2s ease-in;
 
   &:hover {
-    border-color: $border-color-hover;
+    border-color: var(--color-border-hover);
   }
 }
 

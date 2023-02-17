@@ -16,14 +16,14 @@ defineExpose({
 
 <style scoped lang="scss">
 menu {
-  background-color: $background-color-elevation;
+  background-color: var(--color-elevation);
   border-radius: 0.5rem;
   position: absolute;
   top: 36px;
   right: 0;
   padding: 0.5rem 0;
   overflow: hidden;
-  border: 1px solid $border-color-normal;
+  border: 1px solid var(--color-border-normal);
   @include shadow;
 }
 </style>
