@@ -10,12 +10,14 @@
   --color-yellow-normal: #ffbf40;
   --color-yellow-dark: #ffaa00;
   --color-red-normal: #ff4433;
-  --color-red-dark: #e53d2e;
+  --color-red-dark: #cc3629;
+  --color-blue-normal: #3377ff;
+  --color-blue-dark: #2960cc;
 
   --filter-white-79: invert(93%) sepia(9%) saturate(20%) hue-rotate(322deg) brightness(88%) contrast(87%);
   --filter-white-100: invert(94%) sepia(99%) saturate(0%) hue-rotate(237deg) brightness(103%) contrast(101%);
   --filter-black-25: invert(10%) sepia(9%) saturate(31%) hue-rotate(25deg) brightness(101%) contrast(100%);
-  --filter-black-10: filter: invert(7%) sepia(2%) saturate(33%) hue-rotate(332deg) brightness(115%) contrast(95%);
+  --filter-black-10: invert(7%) sepia(2%) saturate(33%) hue-rotate(332deg) brightness(115%) contrast(95%);
 
   --color-background: var(--color-black-10);
   --color-elevation: var(--color-black-15);
@@ -59,4 +61,12 @@
   --color-card-title: var(--color-black-10);
   --color-icon-normal: var(--filter-black-25);
   --color-icon-hover: var(--filter-black-10);
+
+  &.daltonic {
+    --color-border-brand: var(--color-blue-normal);
+    --color-text-brand: var(--color-blue-normal);
+    --color-button-background-primary-normal: var(--color-blue-normal);
+    --color-button-background-primary-hover: var(--color-blue-dark);
+    --color-button-text-primary-active: var(--color-blue-normal);
+  }
 }

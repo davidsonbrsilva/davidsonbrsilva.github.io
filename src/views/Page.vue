@@ -18,6 +18,7 @@ const emit = defineEmits(['clickAboutMe']);
 
 const isLightTheme = ref(false);
 const isTranslateMenuOpen = ref(false);
+const isDaltonicModeEnabled = ref(false);
 const bodyElement = ref<HTMLBodyElement | null>(null);
 const translateMenuElement = ref<InstanceType<typeof Menu> | null>(null);
 const translateMenuButtonElement = ref<InstanceType<typeof MenuButton> | null>(null);
@@ -55,10 +56,19 @@ const handleTheming = () => {
   }
 };
 
+const handleDaltonicMode = () => {
+  bodyElement.value = document.getElementsByTagName('body')[0];
+  const daltonicMode = localStorage.getItem('daltonic');
+
+  if (daltonicMode === 'on') {
+    bodyElement.value?.classList.add('daltonic');
+    isDaltonicModeEnabled.value = true;
+  }
+};
+
 const handleLanguage = () => {
   i18n.locale.value = getLanguage();
   document.documentElement.setAttribute('lang', i18n.locale.value);
-  history.pushState(null, '', i18n.locale.value);
 };
 
 const changeLocale = (locale: string) => {
@@ -66,7 +76,6 @@ const changeLocale = (locale: string) => {
   isTranslateMenuOpen.value = false;
   localStorage.setItem('locale', locale);
   document.documentElement.setAttribute('lang', locale);
-  history.pushState(null, '', locale);
 };
 
 const toggleTheme = () => {
@@ -74,8 +83,15 @@ const toggleTheme = () => {
   localStorage.setItem('theme', bodyElement.value?.classList.contains('light-theme') ? 'light' : 'dark');
 };
 
+const toggleDaltonicMode = () => {
+  bodyElement.value?.classList.toggle('daltonic');
+  localStorage.setItem('daltonic', bodyElement.value?.classList.contains('daltonic') ? 'on' : 'off');
+  isDaltonicModeEnabled.value = !isDaltonicModeEnabled.value;
+};
+
 onMounted(() => {
   handleTheming();
+  handleDaltonicMode();
   handleTranslateMenu();
   handleLanguage();
 });
@@ -83,14 +99,16 @@ onMounted(() => {
 
 <template>
   <header>
-    <Button icon-default="sentiment_satisfied" icon-hover="mood" @click="emit('clickAboutMe')">
-      {{ $t('header.aboutMe') }}
-    </Button>
+    <Button
+      :label="$t('header.aboutMe')"
+      icon-default="sentiment_satisfied"
+      icon-hover="mood"
+      @click="emit('clickAboutMe')"
+    />
     <nav ref="nav">
       <MenuButton
-        label-name="{{ $t('header.chooseALanguage') }}"
+        :label-name="languages[$i18n.locale as keyof typeof languages]"
         icon-name="translate"
-        is-label-hidden
         :is-active="isTranslateMenuOpen"
         @toggle="isTranslateMenuOpen = !isTranslateMenuOpen"
         ref="translateMenuButtonElement"
@@ -104,12 +122,21 @@ onMounted(() => {
         </Menu>
       </MenuButton>
 
+      <MenuButton
+        label-name="Eu sou daltônico"
+        icon-name="visibility_off"
+        active-icon-name="visibility"
+        is-label-hidden
+        :is-active="isDaltonicModeEnabled"
+        @toggle="toggleDaltonicMode"
+      />
+
       <Toggle
         :is-on="isLightTheme"
         icon-on="dark_mode"
         icon-off="light_mode"
-        help-text-on="{{ $t('header.switchToLightMode') }}"
-        help-text-off="{{ $t('header.switchToDarkMode') }}"
+        :help-text-on="$t('header.switchToLightMode')"
+        :help-text-off="$t('header.switchToDarkMode')"
         @click="toggleTheme"
       />
     </nav>
