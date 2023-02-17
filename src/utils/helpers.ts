@@ -11,3 +11,5 @@ export const mapToCamelCase = (text: string, splitter: string) =>
     .split(splitter)
     .map((word, index) => (index > 0 ? `${word[0].toUpperCase()}${word.substring(1)}` : word))
     .join('');
+
+export const getBrowserLocale = () => navigator.language.trim().split(/-|_/)[0];
