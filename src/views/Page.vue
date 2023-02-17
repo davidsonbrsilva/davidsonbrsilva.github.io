@@ -11,6 +11,7 @@ import Toggle from '@components/Toggle.vue';
 import MenuItem from '@components/MenuItem.vue';
 
 import socials from '@utils/socials';
+import { getBrowserLocale } from '@utils/helpers';
 
 const i18n = useI18n();
 const emit = defineEmits(['clickAboutMe']);
@@ -23,6 +24,11 @@ const translateMenuButtonElement = ref<InstanceType<typeof MenuButton> | null>(n
 const nav = ref(null);
 
 const getTheme = () => localStorage.getItem('theme');
+
+const getLanguage = () => {
+  const locale = localStorage.getItem('locale') || getBrowserLocale();
+  return locale ? locale : i18n.locale.value;
+};
 
 const getMediaPreference = () => (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
 
@@ -39,7 +45,7 @@ const handleTranslateMenu = () => {
   });
 };
 
-onMounted(() => {
+const handleTheming = () => {
   bodyElement.value = document.getElementsByTagName('body')[0];
   const userTheme = getTheme() || getMediaPreference();
 
@@ -47,19 +53,32 @@ onMounted(() => {
     bodyElement.value?.classList.add('light-theme');
     isLightTheme.value = true;
   }
+};
 
-  handleTranslateMenu();
-});
+const handleLanguage = () => {
+  i18n.locale.value = getLanguage();
+  document.documentElement.setAttribute('lang', i18n.locale.value);
+  history.pushState(null, '', i18n.locale.value);
+};
 
 const changeLocale = (locale: string) => {
   i18n.locale.value = locale;
   isTranslateMenuOpen.value = false;
+  localStorage.setItem('locale', locale);
+  document.documentElement.setAttribute('lang', locale);
+  history.pushState(null, '', locale);
 };
 
 const toggleTheme = () => {
   bodyElement.value?.classList.toggle('light-theme');
   localStorage.setItem('theme', bodyElement.value?.classList.contains('light-theme') ? 'light' : 'dark');
 };
+
+onMounted(() => {
+  handleTheming();
+  handleTranslateMenu();
+  handleLanguage();
+});
 </script>
 
 <template>
