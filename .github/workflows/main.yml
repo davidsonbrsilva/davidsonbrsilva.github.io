@@ -1,16 +1,41 @@
+name: Build and Deploy
+
+permissions:
+  contents: write
+
 on:
   push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
+    branches: ['main']
 
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
-  
+
     steps:
-      - name: Run deploy script
-        run: ./deploy.sh
-        shell: bash
+      - uses: actions/checkout@v3
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.x
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm i
+
+      - name: Build
+        run: |
+          npm run build
+          cd dist
+          echo > .nojekyll
+          echo 'davidsonbruno.dev' > CNAME
+
+      - name: Deploy
+        working-directory: ./dist
+        run: |
+          git init
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git checkout -B gh-pages
+          git add -A
+          git commit -m 'Deploy'
+          git push -f https://git:${{ secrets.GITHUB_TOKEN }}@github.com/davidsonbrsilva/davidsonbrsilva.github.io.git gh-pages
