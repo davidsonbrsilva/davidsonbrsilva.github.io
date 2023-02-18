@@ -9,8 +9,6 @@
   --color-white-79: #c9c9c9;
   --color-yellow-normal: #ffbf40;
   --color-yellow-dark: #ffaa00;
-  --color-red-normal: #ff4433;
-  --color-red-dark: #cc3629;
   --color-blue-normal: #3377ff;
   --color-blue-dark: #2960cc;
 
@@ -45,28 +43,20 @@
   --color-elevation: var(--color-white-93);
   --color-border-normal: var(--color-white-86);
   --color-border-hover: var(--color-white-79);
-  --color-border-brand: var(--color-red-normal);
+  --color-border-brand: var(--color-blue-normal);
   --color-text-normal: var(--color-black-25);
-  --color-text-brand: var(--color-red-normal);
+  --color-text-brand: var(--color-blue-normal);
   --color-text-disabled: var(--color-white-79);
-  --color-button-background-primary-normal: var(--color-red-normal);
-  --color-button-background-primary-hover: var(--color-red-dark);
+  --color-button-background-primary-normal: var(--color-blue-normal);
+  --color-button-background-primary-hover: var(--color-blue-dark);
   --color-button-background-secondary-hover: var(--color-white-86);
   --color-button-text-primary-normal: var(--color-black-25);
   --color-button-text-primary-hover: var(--color-black-10);
-  --color-button-text-primary-active: var(--color-red-normal);
+  --color-button-text-primary-active: var(--color-blue-normal);
   --color-button-text-secondary: var(--color-white-100);
   --color-badge-background: var(--color-white-86);
   --color-skeleton-item: var(--color-white-86);
   --color-card-title: var(--color-black-10);
   --color-icon-normal: var(--filter-black-25);
   --color-icon-hover: var(--filter-black-10);
-
-  &.colorblind {
-    --color-border-brand: var(--color-blue-normal);
-    --color-text-brand: var(--color-blue-normal);
-    --color-button-background-primary-normal: var(--color-blue-normal);
-    --color-button-background-primary-hover: var(--color-blue-dark);
-    --color-button-text-primary-active: var(--color-blue-normal);
-  }
 }

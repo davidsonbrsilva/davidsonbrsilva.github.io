@@ -56,16 +56,6 @@ const handleTheming = () => {
   }
 };
 
-const handleColorblindMode = () => {
-  bodyElement.value = document.getElementsByTagName('body')[0];
-  const colorblindMode = localStorage.getItem('colorblind');
-
-  if (colorblindMode === 'on') {
-    bodyElement.value?.classList.add('colorblind');
-    isColorblindModeEnabled.value = true;
-  }
-};
-
 const handleLanguage = () => {
   i18n.locale.value = getLanguage();
   document.documentElement.setAttribute('lang', i18n.locale.value);
@@ -83,15 +73,8 @@ const toggleTheme = () => {
   localStorage.setItem('theme', bodyElement.value?.classList.contains('light-theme') ? 'light' : 'dark');
 };
 
-const toggleColorblindMode = () => {
-  bodyElement.value?.classList.toggle('colorblind');
-  localStorage.setItem('colorblind', bodyElement.value?.classList.contains('colorblind') ? 'on' : 'off');
-  isColorblindModeEnabled.value = !isColorblindModeEnabled.value;
-};
-
 onMounted(() => {
   handleTheming();
-  handleColorblindMode();
   handleTranslateMenu();
   handleLanguage();
 });
@@ -123,15 +106,6 @@ onMounted(() => {
           />
         </Menu>
       </MenuButton>
-
-      <MenuButton
-        :label-name="$t('header.iAmColorblind')"
-        icon-name="visibility_off"
-        active-icon-name="visibility"
-        is-label-hidden
-        :is-active="isColorblindModeEnabled"
-        @toggle="toggleColorblindMode"
-      />
 
       <Toggle
         :is-on="isLightTheme"

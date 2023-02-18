@@ -46,7 +46,6 @@ export default {
     switchToLightMode: 'Change to light mode',
     chooseALanguage: 'Choose a language',
     seeMoreInfoAboutDeveloper: 'Veja mais informações sobre o desenvolvedor',
-    iAmColorblind: 'I am colorblind',
   },
   portfolio: {
     title: 'Davidson Bruno',
