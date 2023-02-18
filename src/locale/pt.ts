@@ -46,7 +46,6 @@ export default {
     switchToLightMode: 'Mudar para o Modo Claro',
     chooseALanguage: 'Escolha um idioma',
     seeMoreInfoAboutDeveloper: 'Veja mais informações sobre o desenvolvedor',
-    iAmColorblind: 'Eu sou daltônico',
   },
   portfolio: {
     title: 'Davidson Bruno',
