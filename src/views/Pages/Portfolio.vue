@@ -149,7 +149,7 @@ onMounted(() => {
   </section>
   <section>
     <h3>{{ $t('portfolio.sections.githubProjects.title') }}</h3>
-    <div class="cards" v-if="isMediumPostsLoading">
+    <div class="cards" v-if="isGithubProjectsLoading">
       <Skeleton />
       <Skeleton />
       <Skeleton />
