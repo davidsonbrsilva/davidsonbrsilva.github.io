@@ -84,15 +84,15 @@ onMounted(() => {
   <header>
     <Button
       :label="$t('header.aboutMe')"
-      icon-default="sentiment_satisfied"
-      icon-hover="mood"
+      icon-default="/icons/smile-icon.svg"
+      icon-hover="/icons/happy-icon.svg"
       @click="emit('clickAboutMe')"
       :aria-label="$t('header.seeMoreInfoAboutDeveloper')"
     />
     <nav ref="nav">
       <MenuButton
         :label-name="languages[$i18n.locale as keyof typeof languages]"
-        icon-name="translate"
+        icon-name="/icons/language-icon.svg"
         :is-active="isTranslateMenuOpen"
         @toggle="isTranslateMenuOpen = !isTranslateMenuOpen"
         ref="translateMenuButtonElement"
@@ -109,8 +109,8 @@ onMounted(() => {
 
       <Toggle
         :is-on="isLightTheme"
-        icon-on="dark_mode"
-        icon-off="light_mode"
+        icon-on="/icons/moon-icon.svg"
+        icon-off="/icons/sun-icon.svg"
         :help-text-on="$t('header.switchToLightMode')"
         :help-text-off="$t('header.switchToDarkMode')"
         @click="toggleTheme"

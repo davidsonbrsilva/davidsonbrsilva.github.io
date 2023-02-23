@@ -23,6 +23,11 @@ export const actions = {
 export default {
   loadingMessage: 'Loading...',
   genericErrorMessage: 'Something went wrong. Check your internet connection.',
+  button: {
+    defaultIcon: 'Default icon',
+    hoverIcon: 'Mouse hover icon',
+    activeIcon: 'Active button icon',
+  },
   aboutMe: {
     sections: {
       aboutMe: {

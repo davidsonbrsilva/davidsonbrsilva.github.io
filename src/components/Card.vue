@@ -38,7 +38,7 @@ const { title, url, description, image, actions, badges } = defineProps<{
 
           <ul v-if="details" class="details">
             <li v-for="detail in details">
-              <i v-if="detail.icon" class="material-symbols-outlined">{{ detail.icon }}</i>
+              <i v-if="detail.icon"><img :src="detail.icon" :alt="`${detail.label} icon`" /></i>
               {{ detail.label }}
             </li>
           </ul>
@@ -154,9 +154,14 @@ header {
   }
 
   i {
-    font-size: 1rem;
-    color: var(--color-text-brand);
+    width: 1rem;
+    height: 1rem;
+    filter: var(--color-icon-active);
     margin-right: 0.25rem;
+
+    img {
+      max-width: 100%;
+    }
   }
 }
 

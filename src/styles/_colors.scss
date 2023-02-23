@@ -16,6 +16,7 @@
   --filter-white-100: invert(94%) sepia(99%) saturate(0%) hue-rotate(237deg) brightness(103%) contrast(101%);
   --filter-black-25: invert(10%) sepia(9%) saturate(31%) hue-rotate(25deg) brightness(101%) contrast(100%);
   --filter-black-10: invert(7%) sepia(2%) saturate(33%) hue-rotate(332deg) brightness(115%) contrast(95%);
+  --filter-yellow-normal: invert(77%) sepia(83%) saturate(737%) hue-rotate(327deg) brightness(107%) contrast(101%);
 
   --color-background: var(--color-black-10);
   --color-elevation: var(--color-black-15);
@@ -36,6 +37,7 @@
   --color-card-title: var(--color-white-100);
   --color-icon-normal: var(--filter-white-79);
   --color-icon-hover: var(--filter-white-100);
+  --color-icon-active: var(--filter-yellow-normal);
 }
 
 .light-theme {
@@ -59,4 +61,5 @@
   --color-card-title: var(--color-black-10);
   --color-icon-normal: var(--filter-black-25);
   --color-icon-hover: var(--filter-black-10);
+  --color-icon-active: var(--filter-blue-normal);
 }

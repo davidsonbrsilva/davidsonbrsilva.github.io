@@ -23,6 +23,11 @@ export const actions = {
 export default {
   loadingMessage: 'Loading...',
   genericErrorMessage: 'Algo deu errado. Verifique sua conexão com a internet.',
+  button: {
+    defaultIcon: 'Ícone padrão',
+    hoverIcon: 'Ícone de foco do mouse',
+    activeIcon: 'Ícone de botão ativo',
+  },
   aboutMe: {
     sections: {
       aboutMe: {
