@@ -21,8 +21,8 @@ const emit = defineEmits(['click']);
 <template>
   <input :checked="isOn" type="checkbox" id="theme-mode-toggle" class="checkbox" @click="emit('click')" />
   <label for="theme-mode-toggle" class="toggle-button">
-    <i v-if="iconOn" class="material-symbols-outlined icon-on">{{ iconOn }}</i>
-    <i v-if="iconOff" class="material-symbols-outlined icon-off">{{ iconOff }}</i>
+    <i v-if="iconOn" class="icon-on"><img :src="iconOn" :alt="$t('button.defaultIcon')" /></i>
+    <i v-if="iconOff" class="icon-off"><img :src="iconOff" :alt="$t('button.activeIcon')" /></i>
     <span>
       {{ isOn ? helpTextOn : helpTextOff }}
     </span>
@@ -44,6 +44,10 @@ const emit = defineEmits(['click']);
       border: 1px solid var(--color-border-hover);
     }
 
+    i {
+      filter: var(--color-icon-hover);
+    }
+
     i.icon-on {
       opacity: 0;
     }
@@ -52,6 +56,18 @@ const emit = defineEmits(['click']);
       color: var(--color-text-normal);
       opacity: 1;
     }
+  }
+}
+
+label {
+  i {
+    width: 1rem;
+    height: 1rem;
+    filter: var(--color-icon-normal);
+  }
+
+  img {
+    max-width: 100%;
   }
 }
 

@@ -25,9 +25,13 @@ defineExpose({
 <template>
   <div class="container" ref="root">
     <button :class="{ active: isActive }" type="button" @click="$emit('toggle')">
-      <i v-if="iconName && !activeIconName" class="material-symbols-outlined">{{ iconName }}</i>
-      <i v-else-if="iconName && activeIconName && !isActive" class="material-symbols-outlined">{{ iconName }}</i>
-      <i v-if="iconName && activeIconName && isActive" class="material-symbols-outlined">{{ activeIconName }}</i>
+      <i v-if="iconName && !activeIconName"><img :src="iconName" :alt="$t('button.defaultIcon')" /></i>
+      <i v-else-if="iconName && activeIconName && !isActive">
+        <img :src="iconName" :alt="$t('button.defaultIcon')" />
+      </i>
+      <i v-if="iconName && activeIconName && isActive">
+        <img :src="activeIconName" :alt="$t('button.activeIcon')" />
+      </i>
       <span v-show="!isLabelHidden" class="label">{{ labelName }}</span>
     </button>
     <slot></slot>
@@ -51,12 +55,30 @@ button {
   align-items: center;
   column-gap: 0.5rem;
 
+  i {
+    width: 1.5rem;
+    height: 1.5rem;
+    filter: var(--color-icon-normal);
+  }
+
+  img {
+    max-width: 100%;
+  }
+
   &:hover {
     color: var(--color-button-text-primary-hover);
+
+    i {
+      filter: var(--color-icon-hover);
+    }
   }
 
   &.active {
     color: var(--color-button-text-primary-active);
+
+    i {
+      filter: var(--color-icon-active);
+    }
   }
 }
 

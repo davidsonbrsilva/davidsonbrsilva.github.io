@@ -73,7 +73,7 @@ const buildGithubProjectDetails = (project: GithubProject) => {
 
   project.details.push({
     label: project.language,
-    icon: 'code_blocks',
+    icon: '/icons/code-icon.svg',
   });
 };
 

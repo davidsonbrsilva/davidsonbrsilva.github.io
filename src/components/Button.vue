@@ -8,8 +8,12 @@ const { label, iconDefault, iconHover } = defineProps<{
 
 <template>
   <button type="button">
-    <i v-if="iconDefault" id="icon-default" class="material-symbols-outlined">{{ iconDefault }}</i>
-    <i v-if="iconDefault && iconHover" id="icon-hover" class="material-symbols-outlined">{{ iconHover }}</i>
+    <i v-if="iconDefault" id="icon-default">
+      <img :src="iconDefault" :alt="$t('button.defaultIcon')" />
+    </i>
+    <i v-if="iconDefault && iconHover" id="icon-hover">
+      <img :src="iconHover" :alt="$t('button.hoverIcon')" />
+    </i>
     <span class="label">{{ label }}</span>
   </button>
 </template>
@@ -29,6 +33,15 @@ button {
   background-color: var(--color-button-background-primary-normal);
   transition: 0.3s;
   white-space: nowrap;
+
+  i {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  img {
+    max-width: 100%;
+  }
 
   .label {
     padding: 0 0.4rem;
