@@ -17,6 +17,7 @@
   --filter-black-25: invert(10%) sepia(9%) saturate(31%) hue-rotate(25deg) brightness(101%) contrast(100%);
   --filter-black-10: invert(7%) sepia(2%) saturate(33%) hue-rotate(332deg) brightness(115%) contrast(95%);
   --filter-yellow-normal: invert(77%) sepia(83%) saturate(737%) hue-rotate(327deg) brightness(107%) contrast(101%);
+  --filter-blue-normal: invert(39%) sepia(80%) saturate(4521%) hue-rotate(215deg) brightness(110%) contrast(101%);
 
   --color-background: var(--color-black-10);
   --color-elevation: var(--color-black-15);
@@ -33,6 +34,7 @@
   --color-button-text-primary-hover: var(--color-white-100);
   --color-button-text-primary-active: var(--color-yellow-normal);
   --color-button-text-secondary: var(--color-black-10);
+  --color-button-icon-secondary: var(--filter-black-10);
   --color-badge-background: var(--color-black-20);
   --color-card-title: var(--color-white-100);
   --color-icon-normal: var(--filter-white-79);
@@ -56,6 +58,7 @@
   --color-button-text-primary-hover: var(--color-black-10);
   --color-button-text-primary-active: var(--color-blue-normal);
   --color-button-text-secondary: var(--color-white-100);
+  --color-button-icon-secondary: var(--filter-white-100);
   --color-badge-background: var(--color-white-86);
   --color-skeleton-item: var(--color-white-86);
   --color-card-title: var(--color-black-10);

@@ -37,6 +37,7 @@ button {
   i {
     width: 1.5rem;
     height: 1.5rem;
+    filter: var(--color-button-icon-secondary);
   }
 
   img {
