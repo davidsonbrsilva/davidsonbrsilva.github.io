@@ -25,12 +25,14 @@ defineExpose({
 <template>
   <div class="container" ref="root">
     <button :class="{ active: isActive }" type="button" @click="$emit('toggle')">
-      <i v-if="iconName && !activeIconName"><img :src="iconName" :alt="$t('button.defaultIcon')" /></i>
+      <i v-if="iconName && !activeIconName"
+        ><img :src="iconName" :alt="$t('button.defaultIcon')" width="24" height="24"
+      /></i>
       <i v-else-if="iconName && activeIconName && !isActive">
-        <img :src="iconName" :alt="$t('button.defaultIcon')" />
+        <img :src="iconName" :alt="$t('button.defaultIcon')" width="24" height="24" />
       </i>
       <i v-if="iconName && activeIconName && isActive">
-        <img :src="activeIconName" :alt="$t('button.activeIcon')" />
+        <img :src="activeIconName" :alt="$t('button.activeIcon')" width="24" height="24" />
       </i>
       <span v-show="!isLabelHidden" class="label">{{ labelName }}</span>
     </button>

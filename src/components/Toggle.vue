@@ -21,8 +21,12 @@ const emit = defineEmits(['click']);
 <template>
   <input :checked="isOn" type="checkbox" id="theme-mode-toggle" class="checkbox" @click="emit('click')" />
   <label for="theme-mode-toggle" class="toggle-button">
-    <i v-if="iconOn" class="icon-on"><img :src="iconOn" :alt="$t('button.defaultIcon')" /></i>
-    <i v-if="iconOff" class="icon-off"><img :src="iconOff" :alt="$t('button.activeIcon')" /></i>
+    <i v-if="iconOn" class="icon-on">
+      <img :src="iconOn" :alt="$t('button.defaultIcon')" width="16" height="16" />
+    </i>
+    <i v-if="iconOff" class="icon-off">
+      <img :src="iconOff" :alt="$t('button.activeIcon')" width="16" height="16" />
+    </i>
     <span>
       {{ isOn ? helpTextOn : helpTextOff }}
     </span>
