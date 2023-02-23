@@ -9,10 +9,10 @@ const { label, iconDefault, iconHover } = defineProps<{
 <template>
   <button type="button">
     <i v-if="iconDefault" id="icon-default">
-      <img :src="iconDefault" :alt="$t('button.defaultIcon')" />
+      <img :src="iconDefault" :alt="$t('button.defaultIcon')" width="24" height="24" />
     </i>
     <i v-if="iconDefault && iconHover" id="icon-hover">
-      <img :src="iconHover" :alt="$t('button.hoverIcon')" />
+      <img :src="iconHover" :alt="$t('button.hoverIcon')" width="24" height="24" />
     </i>
     <span class="label">{{ label }}</span>
   </button>

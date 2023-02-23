@@ -38,7 +38,9 @@ const { title, url, description, image, actions, badges } = defineProps<{
 
           <ul v-if="details" class="details">
             <li v-for="detail in details">
-              <i v-if="detail.icon"><img :src="detail.icon" :alt="`${detail.label} icon`" /></i>
+              <i v-if="detail.icon">
+                <img :src="detail.icon" :alt="`${detail.label} icon`" width="16" height="16" />
+              </i>
               {{ detail.label }}
             </li>
           </ul>
