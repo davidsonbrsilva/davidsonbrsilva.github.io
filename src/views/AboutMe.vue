@@ -14,7 +14,7 @@ const { isOpen = false, isAnimationEnabled = false } = defineProps<{
   >
     <MenuButton
       :label-name="$t('aboutMe.sections.aboutMe.closeButton')"
-      icon-name="close"
+      icon-name="icons/close-icon.svg"
       class="close-button"
       @click="$emit('close')"
     />
