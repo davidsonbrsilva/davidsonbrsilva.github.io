@@ -15,7 +15,7 @@ export const projects = {
     'Este é o website que você está vendo neste momento, construído para ser um espaço de divulgação das minhas principais criações públicas.',
 };
 
-export const actions = {
+export const githubActions = {
   github: 'Ver no Github',
   website: 'Ver website',
 };
@@ -57,12 +57,12 @@ export default {
     subtitle: 'Desenvolvedor Fullstack',
     sections: {
       githubProjects: {
-        title: 'Projetos',
+        title: 'Projetos do Github',
         projects,
-        actions,
+        actions: githubActions,
       },
       mediumPosts: {
-        title: 'Postagens',
+        title: 'Publicações do Medium',
       },
     },
   },
