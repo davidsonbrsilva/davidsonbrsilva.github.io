@@ -150,9 +150,7 @@ onMounted(() => {
   <section>
     <h3>{{ $t('portfolio.sections.githubProjects.title') }}</h3>
     <div class="cards" v-if="isGithubProjectsLoading">
-      <Skeleton />
-      <Skeleton />
-      <Skeleton />
+      <Skeleton v-for="n in 3" />
     </div>
     <p v-else-if="hasGithubProjectsError" class="error">{{ $t('genericErrorMessage') }}</p>
     <div v-else class="cards">
@@ -176,9 +174,7 @@ onMounted(() => {
   <section>
     <h3>{{ $t('portfolio.sections.mediumPosts.title') }}</h3>
     <div class="cards" v-if="isMediumPostsLoading">
-      <Skeleton />
-      <Skeleton />
-      <Skeleton />
+      <Skeleton v-for="n in 3" />
     </div>
     <p v-else-if="hasMediumPostsError" class="error">{{ $t('genericErrorMessage') }}</p>
     <div v-else class="cards">
