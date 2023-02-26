@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { onMounted, onUpdated, watch, ref, toRef } from 'vue';
+import { onMounted, watch, ref } from 'vue';
 import { useI18n } from 'vue-i18n';
 
 import { languages } from '@locale/index';
