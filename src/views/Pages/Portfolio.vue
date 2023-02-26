@@ -195,6 +195,10 @@ onMounted(() => {
 section {
   margin-bottom: 3rem;
 
+  &:first-child {
+    padding: 2rem 0;
+  }
+
   &:last-child {
     margin-bottom: 0;
   }

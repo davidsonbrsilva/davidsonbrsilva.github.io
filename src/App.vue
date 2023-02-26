@@ -11,12 +11,15 @@ const hitAboutMeButton = ref(false);
 const handleAboutMeButton = () => {
   isAboutMeSectionOpen.value = true;
   hitAboutMeButton.value = true;
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 };
 </script>
 
 <template>
   <div class="container">
     <AboutMe
+      id="about-me"
       :is-open="isAboutMeSectionOpen"
       :is-animation-enabled="hitAboutMeButton"
       @close="isAboutMeSectionOpen = false"
