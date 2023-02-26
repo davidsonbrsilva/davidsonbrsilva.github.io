@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { onMounted, ref } from 'vue';
+import { onMounted, onUpdated, watch, ref, toRef } from 'vue';
 import { useI18n } from 'vue-i18n';
 
 import { languages } from '@locale/index';
@@ -18,11 +18,13 @@ const emit = defineEmits(['clickAboutMe']);
 
 const isLightTheme = ref(false);
 const isTranslateMenuOpen = ref(false);
-const isColorblindModeEnabled = ref(false);
+const mustHeaderBeOnTop = ref(false);
+
 const bodyElement = ref<HTMLBodyElement | null>(null);
 const translateMenuElement = ref<InstanceType<typeof Menu> | null>(null);
 const translateMenuButtonElement = ref<InstanceType<typeof MenuButton> | null>(null);
-const nav = ref(null);
+const headerElement = ref<HTMLElement | null>(null);
+const mainElement = ref<HTMLElement | null>(null);
 
 const getTheme = () => localStorage.getItem('theme');
 
@@ -33,7 +35,17 @@ const getLanguage = () => {
 
 const getMediaPreference = () => (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
 
-const handleTranslateMenu = () => {
+const registerHeaderEventOnScroll = () => {
+  const aboutMeElement = document.getElementById('about-me');
+  if (!aboutMeElement) return;
+
+  window.addEventListener('scroll', () => {
+    if (!headerElement.value) return;
+    mustHeaderBeOnTop.value = document.documentElement.scrollTop > aboutMeElement.offsetHeight;
+  });
+};
+
+const registerTranslateMenuEventOnClick = () => {
   window.addEventListener('click', (event) => {
     const hasClickedOnTranslateMenu = (translateMenuElement.value?.root as any as Node).contains(event.target as Node);
     const hasClickedOnTranslateMenuButton = (translateMenuButtonElement.value?.root as any as Node).contains(
@@ -46,7 +58,7 @@ const handleTranslateMenu = () => {
   });
 };
 
-const handleTheming = () => {
+const defineThemeOnStart = () => {
   bodyElement.value = document.getElementsByTagName('body')[0];
   const userTheme = getTheme() || getMediaPreference();
 
@@ -56,9 +68,23 @@ const handleTheming = () => {
   }
 };
 
-const handleLanguage = () => {
+const defineLanguageOnStart = () => {
   i18n.locale.value = getLanguage();
   document.documentElement.setAttribute('lang', i18n.locale.value);
+};
+
+const handleHeaderPosition = () => {
+  if (mainElement.value && headerElement.value) {
+    if (mustHeaderBeOnTop.value) {
+      mainElement.value.style.marginTop = headerElement.value.offsetHeight + 'px';
+      headerElement.value.style.position = 'fixed';
+      headerElement.value.style.top = '0';
+      return;
+    }
+
+    mainElement.value.style.marginTop = '0';
+    headerElement.value.style.position = 'static';
+  }
 };
 
 const changeLocale = (locale: string) => {
@@ -74,14 +100,17 @@ const toggleTheme = () => {
 };
 
 onMounted(() => {
-  handleTheming();
-  handleTranslateMenu();
-  handleLanguage();
+  defineThemeOnStart();
+  defineLanguageOnStart();
+  registerTranslateMenuEventOnClick();
+  registerHeaderEventOnScroll();
 });
+
+watch(mustHeaderBeOnTop, () => handleHeaderPosition());
 </script>
 
 <template>
-  <header>
+  <header ref="headerElement">
     <Button
       :label="$t('header.aboutMe')"
       icon-default="/icons/smile-icon.svg"
@@ -89,7 +118,7 @@ onMounted(() => {
       @click="emit('clickAboutMe')"
       :aria-label="$t('header.seeMoreInfoAboutDeveloper')"
     />
-    <nav ref="nav">
+    <nav>
       <MenuButton
         :label-name="languages[$i18n.locale as keyof typeof languages]"
         icon-name="/icons/language-icon.svg"
@@ -118,7 +147,7 @@ onMounted(() => {
     </nav>
   </header>
 
-  <main>
+  <main ref="mainElement">
     <slot></slot>
   </main>
 
@@ -140,10 +169,14 @@ footer {
 }
 
 header {
+  position: fixed;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   column-gap: 1rem;
+  background-color: var(--color-background);
+  z-index: 100;
 
   nav {
     display: flex;

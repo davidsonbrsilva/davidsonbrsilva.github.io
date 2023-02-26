@@ -7,6 +7,7 @@ export default createI18n({
   locale: 'en',
   fallbackLocale: 'en',
   messages: { en, pt },
+  warnHtmlMessage: false,
 });
 
 export const languages = {
