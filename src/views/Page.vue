@@ -104,6 +104,7 @@ onMounted(() => {
   defineLanguageOnStart();
   registerTranslateMenuEventOnClick();
   registerHeaderEventOnScroll();
+  handleHeaderPosition();
 });
 
 watch(mustHeaderBeOnTop, () => handleHeaderPosition());
