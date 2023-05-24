@@ -34,7 +34,7 @@ export default {
         closeButton: 'Close',
         title: 'About me',
         paragraph:
-          'Thank you for your visit! I am a developer with a degree in Information Systems from <a href="http://portal.ufvjm.edu.br/" target="_blank">Federal University of the Jequitinhonha and Mucuri Valleys</a> and I\'ve been worked as a lead developer at <a href="https://www.dtidigital.com.br/" target="_blank">dti digital</a>. In the programming world, I am mainly interested in Artificial Intelligence, Compilers and Web Development.',
+          'Thank you for your visit! I am a developer with a degree in Information Systems from <a href="http://portal.ufvjm.edu.br/" target="_blank">Federal University of the Jequitinhonha and Mucuri Valleys</a> and I\'ve been worked as a lead developer at <a href="https://mercadolivre.com.br/" target="_blank">Mercado Livre</a>. In the programming world, I am mainly interested in Artificial Intelligence, Compilers and Web Development.',
       },
       job: {
         title: 'Need me for a job?',

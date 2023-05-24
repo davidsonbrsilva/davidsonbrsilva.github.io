@@ -34,7 +34,7 @@ export default {
         closeButton: 'Fechar',
         title: 'Sobre mim',
         paragraph:
-          'Obrigado por sua visita! Sou programador formado em Sistemas de Informação pela <a href="http://portal.ufvjm.edu.br/" target="_blank">Universidade Federal dos Vales do Jequitinhonha e Mucuri</a> e atualmente trabalho como desenvolvedor líder na <a href="https://www.dtidigital.com.br/" target="_blank">dti digital</a>. No mundo da programação, interesso-me, principalmente, por Inteligência Artificial, Compiladores e Desenvolvimento Web.',
+          'Obrigado por sua visita! Sou programador formado em Sistemas de Informação pela <a href="http://portal.ufvjm.edu.br/" target="_blank">Universidade Federal dos Vales do Jequitinhonha e Mucuri</a> e atualmente trabalho como Software Developer na <a href="https://mercadolivre.com.br/" target="_blank">Mercado Livre</a>. No mundo da programação, interesso-me, principalmente, por Inteligência Artificial, Compiladores e Desenvolvimento Web.',
       },
       job: {
         title: 'Precisa de mim para um trabalho?',
