@@ -8,7 +8,7 @@ export const projects = {
   gongo:
     'Gongo é um chat simples construído para fins de aprendizado sobre sockets, fornecido com uma arquitetura cliente-servidor que permite que múltiplos usuários conversem simultaneamente através do protocolo TCP.',
   sparksMusicLibrary:
-    'Sparks Music Library é uma biblioteca de classes construída em .Net 5 para reconhecimento, extração e transposição de acordes musicais.',
+    'Sparks Music Library é uma biblioteca de classes construída para reconhecimento, extração e transposição de acordes musicais.',
   dialogger:
     'Dialogger é uma aplicação web de perguntas e respostas divertida construída para praticar desenvolvimento de UI com CSS em React e manipulação de eventos customizados em JavaScript.',
   davidsonbrsilvaGithubIo:
@@ -39,7 +39,7 @@ export default {
       job: {
         title: 'Precisa de mim para um trabalho?',
         paragraph1:
-          'Possuo experiência de mercado em desenvolvimento de APIs com microsserviços em .Net (C#) e desenvolvimento de interfaces de usuário com React e React Native. Possuo conhecimento sólido em CSS e SASS, HTML semântico e JavaScript nas versões mais recentes a partir do ECMAScript 6. Busco, atualmente, aperfeiçoamento em frameworks como Vue e Svelte e em minhas habilidades com o inglês.',
+          'Possuo experiência de mercado em desenvolvimento de APIs com microsserviços em .Net (C#) e desenvolvimento de interfaces de usuário com React e React Native. Possuo conhecimento sólido em CSS e SASS, HTML semântico e JavaScript nas versões mais recentes a partir do ECMAScript 6. Busco, atualmente, aperfeiçoamento em minhas habilidades com o inglês.',
         paragraph2:
           'Conheço as boas práticas apontadas pelas arquiteturas Clean, Onion e Hexagonal, bem como DDD (Domain-Driven Development), DevOps e construção de esteiras de CI/CD. Também me identifico bastante com assuntos relacionados à UX/UI. Veja mais informações no meu perfil do <a href="https://www.linkedin.com/in/davidsonbrsilva/" target="_blank">LinkedIn</a>.',
       },
@@ -53,7 +53,7 @@ export default {
     seeMoreInfoAboutDeveloper: 'Veja mais informações sobre o desenvolvedor',
     curriculum: {
       label: 'Currículo',
-      see: 'Ver',
+      view: 'Ver',
       download: 'Baixar',
       copyLink: 'Copiar link',
       isCopied: 'Copiado!',

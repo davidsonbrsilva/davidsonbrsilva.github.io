@@ -164,7 +164,7 @@ watch(mustHeaderBeOnTop, () => handleHeaderPosition());
       >
         <Menu v-show="isCurriculumMenuOpen" ref="curriculumMenuElement">
           <MenuItem
-            :label-name="$t('header.curriculum.see')"
+            :label-name="$t('header.curriculum.view')"
             @click="() => openCurriculum($t('header.curriculum.link'))"
           />
           <MenuItem
