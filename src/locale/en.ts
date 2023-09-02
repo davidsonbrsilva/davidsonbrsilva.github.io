@@ -8,7 +8,7 @@ export const projects = {
   gongo:
     'Gongo is a simple chat built for the purpose of learning about sockets, provided with a client-server architecture that allows multiple users to communicate simultaneously through the TCP protocol.',
   sparksMusicLibrary:
-    'Sparks Music Library is a library of classes built in .Net 5 for recognition, extraction and transposition of musical chords.',
+    'Sparks Music Library is a library of classes built for recognition, extraction and transposition of musical chords.',
   dialogger:
     'Dialogger is a fun yes-or-no question-and-answer web application built to practice UI development with CSS in React and custom event handling in JavaScript.',
   davidsonbrsilvaGithubIo:
@@ -39,7 +39,7 @@ export default {
       job: {
         title: 'Need me for a job?',
         paragraph1:
-          'I have market experience in developing APIs with microservices in .Net (C#) and developing user interfaces with React and React Native. I have solid knowledge in CSS and SASS, semantic HTML and JavaScript in the latest versions from ECMAScript 6. I am currently looking for improvement in frameworks such as Vue and Svelte and in my English skills.',
+          'I have market experience in developing APIs with microservices in .Net (C#) and developing user interfaces with React and React Native. I have solid knowledge in CSS and SASS, semantic HTML and JavaScript in the latest versions from ECMAScript 6. I am currently looking for improvement in my English skills.',
         paragraph2:
           'I know the best practices pointed out by the Clean, Onion and Hexagonal architectures, as well as DDD (Domain-Driven Development), DevOps and building CI/CD mats. I also relate a lot to UX/UI issues. See more information on my <a href="https://www.linkedin.com/in/davidsonbrsilva/" target="_blank">LinkedIn</a> profile.',
       },
@@ -53,7 +53,7 @@ export default {
     seeMoreInfoAboutDeveloper: 'Veja mais informações sobre o desenvolvedor',
     curriculum: {
       label: 'Curriculum',
-      see: 'See',
+      view: 'View',
       download: 'Download',
       copyLink: 'Copy link',
       isCopied: 'Copied!',
