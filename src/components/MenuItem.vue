@@ -8,7 +8,7 @@ const { labelName, iconName } = defineProps<{
 <template>
   <li>
     <i class="material-symbols-outlined">{{ iconName }}</i>
-    <button type="button" @click="$emit('click')">
+    <button type="button" @click.stop="$emit('click')">
       {{ labelName }}
     </button>
   </li>
@@ -20,7 +20,7 @@ li {
 
   button {
     width: 100%;
-    text-align: left;
+    text-align: center;
     padding: 0.5rem 1rem;
     background: transparent;
     outline: none;
