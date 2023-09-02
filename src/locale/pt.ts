@@ -51,6 +51,15 @@ export default {
     switchToLightMode: 'Mudar para o Modo Claro',
     chooseALanguage: 'Escolha um idioma',
     seeMoreInfoAboutDeveloper: 'Veja mais informações sobre o desenvolvedor',
+    curriculum: {
+      label: 'Currículo',
+      see: 'Ver',
+      download: 'Baixar',
+      copyLink: 'Copiar link',
+      isCopied: 'Copiado!',
+      link: 'https://resume.io/r/dZg7IkF9o',
+      pdf: 'https://drive.google.com/uc?export=download&id=1B80kEGZjU6Zc-bcwBo64auMAhf1lhiep',
+    },
   },
   portfolio: {
     title: 'Davidson Bruno',

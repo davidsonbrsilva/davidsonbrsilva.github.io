@@ -16,6 +16,7 @@ defineExpose({
 
 <style scoped lang="scss">
 menu {
+  min-width: 100px;
   background-color: var(--color-elevation);
   border-radius: 0.5rem;
   position: absolute;

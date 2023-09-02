@@ -18,11 +18,15 @@ const emit = defineEmits(['clickAboutMe']);
 
 const isLightTheme = ref(false);
 const isTranslateMenuOpen = ref(false);
+const isCurriculumMenuOpen = ref(false);
+const isCurriculumLinkCopied = ref(false);
 const mustHeaderBeOnTop = ref(false);
 
 const bodyElement = ref<HTMLBodyElement | null>(null);
 const translateMenuElement = ref<InstanceType<typeof Menu> | null>(null);
 const translateMenuButtonElement = ref<InstanceType<typeof MenuButton> | null>(null);
+const curriculumMenuElement = ref<InstanceType<typeof Menu> | null>(null);
+const curriculumMenuButtonElement = ref<InstanceType<typeof MenuButton> | null>(null);
 const headerElement = ref<HTMLElement | null>(null);
 const mainElement = ref<HTMLElement | null>(null);
 
@@ -58,6 +62,22 @@ const registerTranslateMenuEventOnClick = () => {
   });
 };
 
+const registerCurriculumMenuEventOnClick = () => {
+  window.addEventListener('click', (event) => {
+    const hasClickedOnCurriculumMenu = (curriculumMenuElement.value?.root as any as Node).contains(
+      event.target as Node
+    );
+    const hasClickedOnCurriculumMenuButton = (curriculumMenuButtonElement.value?.root as any as Node).contains(
+      event.target as Node
+    );
+
+    if (!hasClickedOnCurriculumMenu && !hasClickedOnCurriculumMenuButton) {
+      isCurriculumMenuOpen.value = false;
+      isCurriculumLinkCopied.value = false;
+    }
+  });
+};
+
 const defineThemeOnStart = () => {
   bodyElement.value = document.getElementsByTagName('body')[0];
   const userTheme = getTheme() || getMediaPreference();
@@ -87,6 +107,19 @@ const handleHeaderPosition = () => {
   }
 };
 
+const openCurriculum = (link: string) => {
+  window.open(link, '_blank');
+};
+
+const downloadCurriculum = (link: string) => {
+  window.open(link);
+};
+
+const copyCurriculumLink = (link: string) => {
+  navigator.clipboard.writeText(link);
+  isCurriculumLinkCopied.value = true;
+};
+
 const changeLocale = (locale: string) => {
   i18n.locale.value = locale;
   isTranslateMenuOpen.value = false;
@@ -103,6 +136,7 @@ onMounted(() => {
   defineThemeOnStart();
   defineLanguageOnStart();
   registerTranslateMenuEventOnClick();
+  registerCurriculumMenuEventOnClick();
   registerHeaderEventOnScroll();
   handleHeaderPosition();
 });
@@ -120,6 +154,30 @@ watch(mustHeaderBeOnTop, () => handleHeaderPosition());
       :aria-label="$t('header.seeMoreInfoAboutDeveloper')"
     />
     <nav>
+      <MenuButton
+        :label-name="$t('header.curriculum.label')"
+        icon-name="/icons/curriculum-icon.svg"
+        :is-active="isCurriculumMenuOpen"
+        @toggle="isCurriculumMenuOpen = !isCurriculumMenuOpen"
+        ref="curriculumMenuButtonElement"
+        :aria-label="$t('header.curriculum.label')"
+      >
+        <Menu v-show="isCurriculumMenuOpen" ref="curriculumMenuElement">
+          <MenuItem
+            :label-name="$t('header.curriculum.see')"
+            @click="() => openCurriculum($t('header.curriculum.link'))"
+          />
+          <MenuItem
+            :label-name="$t('header.curriculum.download')"
+            @click="() => downloadCurriculum($t('header.curriculum.pdf'))"
+          />
+          <MenuItem
+            :label-name="isCurriculumLinkCopied ? $t('header.curriculum.isCopied') : $t('header.curriculum.copyLink')"
+            @click="() => copyCurriculumLink($t('header.curriculum.link'))"
+          />
+        </Menu>
+      </MenuButton>
+
       <MenuButton
         :label-name="languages[$i18n.locale as keyof typeof languages]"
         icon-name="/icons/language-icon.svg"
