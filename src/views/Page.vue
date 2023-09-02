@@ -158,6 +158,7 @@ watch(mustHeaderBeOnTop, () => handleHeaderPosition());
         :label-name="$t('header.curriculum.label')"
         icon-name="/icons/curriculum-icon.svg"
         :is-active="isCurriculumMenuOpen"
+        :show-label-from-screen-width="310"
         @toggle="isCurriculumMenuOpen = !isCurriculumMenuOpen"
         ref="curriculumMenuButtonElement"
         :aria-label="$t('header.curriculum.label')"
@@ -240,7 +241,7 @@ header {
   nav {
     display: flex;
     align-items: center;
-    column-gap: 0.25rem;
+    column-gap: 1rem;
   }
 }
 
