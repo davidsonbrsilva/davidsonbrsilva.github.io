@@ -88,7 +88,7 @@ button {
   display: none;
 }
 
-@media only screen and (min-width: 380px) {
+@media only screen and (min-width: 460px) {
   .label {
     display: block;
   }

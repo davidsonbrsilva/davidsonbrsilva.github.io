@@ -39,6 +39,7 @@ const handleAboutMeButton = () => {
 
 html {
   font-size: 16px;
+  min-width: 240px;
 }
 
 body {
