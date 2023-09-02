@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { computed, onMounted, ref } from 'vue';
 
 const {
   labelName,
@@ -7,15 +7,26 @@ const {
   activeIconName,
   isActive = false,
   isLabelHidden = false,
+  showLabelFromScreenWidth = 460,
 } = defineProps<{
   labelName: string;
   iconName?: string;
   activeIconName?: string;
   isActive?: boolean;
   isLabelHidden?: boolean;
+  showLabelFromScreenWidth?: number;
 }>();
 
 const root = ref(null);
+const deviceWidth = ref(window.innerWidth);
+
+onMounted(() => {
+  window.addEventListener('resize', () => {
+    deviceWidth.value = window.innerWidth;
+  });
+});
+
+const mustShowLabel = computed(() => !isLabelHidden && deviceWidth.value >= showLabelFromScreenWidth);
 
 defineExpose({
   root,
@@ -34,7 +45,7 @@ defineExpose({
       <i v-if="iconName && activeIconName && isActive">
         <img :src="activeIconName" :alt="$t('button.activeIcon')" width="24" height="24" />
       </i>
-      <span v-show="!isLabelHidden" class="label">{{ labelName }}</span>
+      <span v-show="mustShowLabel">{{ labelName }}</span>
     </button>
     <slot></slot>
   </div>
@@ -46,7 +57,6 @@ defineExpose({
 }
 
 button {
-  padding: 0 0.5rem;
   font: var(--text-button);
   outline: none;
   border: none;
@@ -81,16 +91,6 @@ button {
     i {
       filter: var(--color-icon-active);
     }
-  }
-}
-
-.label {
-  display: none;
-}
-
-@media only screen and (min-width: 460px) {
-  .label {
-    display: block;
   }
 }
 </style>

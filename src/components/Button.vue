@@ -73,7 +73,7 @@ button {
   }
 }
 
-@media only screen and (min-width: 320px) {
+@media only screen and (min-width: 390px) {
   button {
     i + .label {
       display: block;
