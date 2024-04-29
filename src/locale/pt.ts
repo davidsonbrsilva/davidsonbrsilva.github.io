@@ -13,6 +13,8 @@ export const projects = {
     'Dialogger é uma aplicação web de perguntas e respostas divertida construída para praticar desenvolvimento de UI com CSS em React e manipulação de eventos customizados em JavaScript.',
   davidsonbrsilvaGithubIo:
     'Este é o website que você está vendo neste momento, construído para ser um espaço de divulgação das minhas principais criações públicas.',
+  versioningWorkflow:
+    'Versioning Workflow é uma ferramenta para gerar versões automáticas de código para os seus projetos.',
 };
 
 export const githubActions = {
