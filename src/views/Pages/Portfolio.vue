@@ -38,6 +38,7 @@ interface MediumPost {
   thumbnail: string;
   categories: string[];
   actions: Action[];
+  description: string;
 }
 
 const githubProjects = ref<GithubProject[]>();
@@ -89,6 +90,14 @@ const buildMediumPostActions = (post: MediumPost) => {
   return post;
 };
 
+const extractMediumThumbnailFromDescription = (post: MediumPost) => {
+  const imageRegex = /<img.*?src="(.*?)"/;
+  const image = post.description.match(imageRegex);
+  post.thumbnail = image ? image[1] : '';
+
+  return post;
+};
+
 const getGithubProjects = async () => {
   isGithubProjectsLoading.value = true;
   await axios
@@ -115,7 +124,12 @@ const getMediumPosts = async () => {
   await axios
     .get('https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@davidsonbrsilva')
     .then((response) => {
-      mediumPosts.value = (response.data.items as MediumPost[]).map((post) => buildMediumPostActions(post));
+      mediumPosts.value = (response.data.items as MediumPost[]).map((post) => {
+        buildMediumPostActions(post);
+        extractMediumThumbnailFromDescription(post);
+        return post;
+      });
+
       isMediumPostsLoading.value = false;
     })
     .catch(() => {
