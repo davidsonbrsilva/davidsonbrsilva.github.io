@@ -13,6 +13,7 @@ export const projects = {
     'Dialogger is a fun yes-or-no question-and-answer web application built to practice UI development with CSS in React and custom event handling in JavaScript.',
   davidsonbrsilvaGithubIo:
     'This is the website you are seeing right now, built to be a space for publicizing my main creations.',
+  versioningWorkflow: 'Versioning Workflow is a tool for generating automatic code versions in your projects.',
 };
 
 export const githubActions = {
