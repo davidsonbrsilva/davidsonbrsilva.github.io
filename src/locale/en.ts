@@ -58,8 +58,8 @@ export default {
       download: 'Download',
       copyLink: 'Copy link',
       isCopied: 'Copied!',
-      link: 'https://resume.io/r/3NwRlHzZo',
-      pdf: 'https://drive.google.com/uc?export=download&id=1UAGHZddsYbhckqsbvTdIsPV88vZ4SH5_',
+      link: 'https://rxresu.me/davidsonbrsilva/curriculum-en-us',
+      pdf: 'https://storage.rxresu.me/clwlh5yxj0begtojz1wj93hhb/resumes/Curriculum (en-US).pdf',
     },
   },
   portfolio: {
