@@ -64,7 +64,7 @@ export default {
   },
   portfolio: {
     title: 'Davidson Bruno',
-    subtitle: 'Fullstack Developer',
+    subtitle: 'Software Developer',
     sections: {
       githubProjects: {
         title: 'Github Projects',
